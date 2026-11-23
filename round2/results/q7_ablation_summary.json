@@ -121,9 +121,9 @@
     },
     {
       "n": 450,
-      "mean_diff": -0.041875,
-      "ci95_halfwidth": 0.007324722894109993,
-      "median_diff": 0.0,
+      "mean_diff": -0.050370370370370364,
+      "ci95_halfwidth": 0.008420594424333613,
+      "median_diff": -0.04166666666666663,
       "label": "RM-C5 买到顶反证",
       "arm_a": "RM_buytop",
       "arm_b": "C5_online"
@@ -197,10 +197,10 @@
       "censored_mean": 0.43333333333333335
     },
     "RM_buytop": {
-      "cost_mean": 29.503368102705377,
-      "completion_mean": 0.8905092592592592,
-      "reviews_mean": 5.928888888888889,
-      "censored_mean": 0.3933333333333333
+      "cost_mean": 29.444110629552746,
+      "completion_mean": 0.8860185185185184,
+      "reviews_mean": 5.966666666666667,
+      "censored_mean": 0.4111111111111111
     },
     "C5_online": {
       "cost_mean": 24.80228745486335,
