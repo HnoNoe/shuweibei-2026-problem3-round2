@@ -1,0 +1,51 @@
+{
+  "step": "q5 时长模型+混合似然更新器",
+  "sigma_floor": 0.35,
+  "params": {
+    "A": [
+      1.272,
+      0.662
+    ],
+    "L": [
+      1.844,
+      1.013
+    ],
+    "P": [
+      1.588,
+      0.76
+    ]
+  },
+  "checks": [
+    {
+      "name": "1 参数与 q1_gofit 一致",
+      "passed": true,
+      "detail": "A: mu 1.272 vs 1.272 OK; sigma 0.662 vs 0.662 OK; L: mu 1.844 vs 1.844 OK; sigma 1.013 vs 1.013 OK; P: mu 1.588 vs 1.588 OK; sigma 0.760 vs 0.760 OK"
+    },
+    {
+      "name": "2 分位数自洽",
+      "passed": true,
+      "detail": "中位数=exp(mu)、单调、q25<=q50<=q75，全族通过"
+    },
+    {
+      "name": "3 EM 正确且收敛",
+      "passed": true,
+      "detail": "EM(1.7016,0.8112) vs 数值MLE(1.7016,0.8112) 差<1e-3；100 重复中位 mu=1.5746 vs 真值 1.588；25 步收敛"
+    },
+    {
+      "name": "4 reset 防泄漏",
+      "passed": true,
+      "detail": "污染后 mu=1.639，reset 后回到基线 1.588、缓存清零"
+    },
+    {
+      "name": "5 双信息通道",
+      "passed": true,
+      "detail": "|估计-真值|：混合 0.114 vs 仅完成子集 0.507 vs 不更新 0.588；删失通道把 mu 从 1.081 拉回 1.702（真值 1.588）"
+    },
+    {
+      "name": "6 冻结拒绝更新",
+      "passed": true,
+      "detail": "frozen 模型调 updater() 正确抛 RuntimeError"
+    }
+  ],
+  "all_passed": true
+}

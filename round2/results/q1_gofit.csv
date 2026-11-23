@@ -1,0 +1,4 @@
+﻿family,n,lognormal_mu,lognormal_sigma,weibull_k,weibull_lambda,AIC_lognormal,AIC_weibull,winner
+A,112,1.272,0.662,1.293,5.083,229.5,557.8,lognormal
+L,10,1.844,1.013,0.939,10.828,32.6,72.2,lognormal
+P,124,1.588,0.76,0.99,7.448,287.9,751.4,lognormal

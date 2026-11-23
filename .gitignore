@@ -1,0 +1,7 @@
+round2/qa/
+round2/logs_*.txt
+round2/src/node_modules/
+round2/figures3/
+round2/results3/
+*.docx
+__pycache__/

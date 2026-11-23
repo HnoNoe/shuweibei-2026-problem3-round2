@@ -1,0 +1,92 @@
+{
+  "step": "q6 两阶段策略引擎",
+  "configs": {
+    "C0_bare": {
+      "l1": false,
+      "l2": false,
+      "l3": false,
+      "l4": false,
+      "l5": false
+    },
+    "C1_atc": {
+      "l1": true,
+      "l2": false,
+      "l3": false,
+      "l4": false,
+      "l5": false
+    },
+    "C2_guard": {
+      "l1": true,
+      "l2": true,
+      "l3": false,
+      "l4": false,
+      "l5": false
+    },
+    "C3_budget": {
+      "l1": true,
+      "l2": false,
+      "l3": true,
+      "l4": false,
+      "l5": false
+    },
+    "C4_roll": {
+      "l1": true,
+      "l2": false,
+      "l3": false,
+      "l4": true,
+      "l5": false
+    },
+    "C5_online": {
+      "l1": true,
+      "l2": true,
+      "l3": true,
+      "l4": true,
+      "l5": false
+    },
+    "C6_full": {
+      "l1": true,
+      "l2": true,
+      "l3": true,
+      "l4": true,
+      "l5": true
+    }
+  },
+  "checks": [
+    {
+      "name": "1 合法性(C6 9局)",
+      "passed": true,
+      "detail": "invalid≠0: 无; 9局共 6.6s"
+    },
+    {
+      "name": "2 回放一致(CRN地基)",
+      "passed": true,
+      "detail": "log 不一致: 无（4 局逐字节比对）"
+    },
+    {
+      "name": "3 放松链不空",
+      "passed": true,
+      "detail": "近 H 合成快照返回: ('execute', 'J1', 0.2)"
+    },
+    {
+      "name": "4 引擎退化≡WSPT中位",
+      "passed": true,
+      "detail": "动作序列不一致: 无（3 局逐动作比对；引擎默认估计=中位数）"
+    },
+    {
+      "name": "5 离线序列确定性",
+      "passed": true,
+      "detail": "双构建一致; 序列长 12"
+    },
+    {
+      "name": "6 L5单调不劣",
+      "passed": true,
+      "detail": "初解 0.6833 -> 搜索后 0.7958（10 情景均值）"
+    },
+    {
+      "name": "7 SAA间隙冒烟(S1)",
+      "passed": true,
+      "detail": "LB 0.9275±0.0221(精确=True), UB 0.9337, gap_rel 0.0066, 22.8s"
+    }
+  ],
+  "all_passed": true
+}

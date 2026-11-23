@@ -1,0 +1,213 @@
+{
+  "primary_metric": "weighted_on_time_rate",
+  "n_rows": 5400,
+  "valid_protocol_violations": 0,
+  "frozen": {
+    "kappa": 3.0,
+    "roll_K": 40
+  },
+  "primary_pair": {
+    "arms": [
+      "C6_full",
+      "B3_WSPT_Q90"
+    ],
+    "n": 450,
+    "mean_diff": 0.0725462962962963,
+    "ci95_halfwidth": 0.009166604029493958,
+    "median_diff": 0.0625,
+    "label": "主对比 C6-B3",
+    "arm_a": "C6_full",
+    "arm_b": "B3_WSPT_Q90"
+  },
+  "pairs": [
+    {
+      "n": 450,
+      "mean_diff": 0.03578703703703705,
+      "ci95_halfwidth": 0.016143788985367086,
+      "median_diff": 0.0,
+      "label": "B2-B1 规则升级",
+      "arm_a": "B2_WSPT_MEAN",
+      "arm_b": "B1_EDD"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.012939814814814805,
+      "ci95_halfwidth": 0.00520436744348393,
+      "median_diff": 0.0,
+      "label": "B2b-B2 中位数vs均值点估计",
+      "arm_a": "B2b_WSPT_MEDIAN",
+      "arm_b": "B2_WSPT_MEAN"
+    },
+    {
+      "n": 450,
+      "mean_diff": -0.004861111111111111,
+      "ci95_halfwidth": 0.002003882973959785,
+      "median_diff": 0.0,
+      "label": "B3-B2 稳健点估计",
+      "arm_a": "B3_WSPT_Q90",
+      "arm_b": "B2_WSPT_MEAN"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.0493287037037037,
+      "ci95_halfwidth": 0.008436061322200157,
+      "median_diff": 0.04166666666666674,
+      "label": "C1-B2 ATC折中",
+      "arm_a": "C1_atc",
+      "arm_b": "B2_WSPT_MEAN"
+    },
+    {
+      "n": 450,
+      "mean_diff": -0.0016666666666666661,
+      "ci95_halfwidth": 0.001454862425573239,
+      "median_diff": 0.0,
+      "label": "C2-C1 截断防护",
+      "arm_a": "C2_guard",
+      "arm_b": "C1_atc"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.0006018518518518516,
+      "ci95_halfwidth": 0.0016896915651697154,
+      "median_diff": 0.0,
+      "label": "C3-C1 预算取舍",
+      "arm_a": "C3_budget",
+      "arm_b": "C1_atc"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.021550925925925928,
+      "ci95_halfwidth": 0.007973093791971916,
+      "median_diff": 0.0,
+      "label": "C4-C1 rollout前瞻",
+      "arm_a": "C4_roll",
+      "arm_b": "C1_atc"
+    },
+    {
+      "n": 450,
+      "mean_diff": -0.00601851851851852,
+      "ci95_halfwidth": 0.006498396338774466,
+      "median_diff": 0.0,
+      "label": "C6-C5 离线搜索",
+      "arm_a": "C6_full",
+      "arm_b": "C5_online"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.07856481481481481,
+      "ci95_halfwidth": 0.009303190005288009,
+      "median_diff": 0.0625,
+      "label": "C5-B3 在线全家vs最强朴素",
+      "arm_a": "C5_online",
+      "arm_b": "B3_WSPT_Q90"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.0725462962962963,
+      "ci95_halfwidth": 0.009166604029493958,
+      "median_diff": 0.0625,
+      "label": "主对比 C6-B3",
+      "arm_a": "C6_full",
+      "arm_b": "B3_WSPT_Q90"
+    },
+    {
+      "n": 450,
+      "mean_diff": 0.06768518518518518,
+      "ci95_halfwidth": 0.009016840566225759,
+      "median_diff": 0.0625,
+      "label": "C6-B2 全栈vs标准解",
+      "arm_a": "C6_full",
+      "arm_b": "B2_WSPT_MEAN"
+    },
+    {
+      "n": 450,
+      "mean_diff": -0.041875,
+      "ci95_halfwidth": 0.007324722894109993,
+      "median_diff": 0.0,
+      "label": "RM-C5 买到顶反证",
+      "arm_a": "RM_buytop",
+      "arm_b": "C5_online"
+    }
+  ],
+  "breakdown": {
+    "case": {
+      "S1": {
+        "n": 150,
+        "mean_diff": 0.01625,
+        "ci95_halfwidth": 0.010542371237610565,
+        "median_diff": 0.0
+      },
+      "S2": {
+        "n": 150,
+        "mean_diff": 0.12055555555555554,
+        "ci95_halfwidth": 0.017348417607198643,
+        "median_diff": 0.125
+      },
+      "S3": {
+        "n": 150,
+        "mean_diff": 0.08083333333333333,
+        "ci95_halfwidth": 0.014511902768504462,
+        "median_diff": 0.09375
+      }
+    },
+    "mapping": {
+      "(0.75, 0.5)": {
+        "n": 90,
+        "mean_diff": 0.09166666666666666,
+        "ci95_halfwidth": 0.01813961236450963,
+        "median_diff": 0.08333333333333337
+      },
+      "(1.0, 0.0)": {
+        "n": 90,
+        "mean_diff": 0.08449074074074073,
+        "ci95_halfwidth": 0.018774903588210684,
+        "median_diff": 0.0625
+      },
+      "(1.0, 0.5)": {
+        "n": 90,
+        "mean_diff": 0.0900462962962963,
+        "ci95_halfwidth": 0.017179916674785425,
+        "median_diff": 0.0625
+      },
+      "(1.0, 1.0)": {
+        "n": 90,
+        "mean_diff": 0.09386574074074075,
+        "ci95_halfwidth": 0.019049355679515725,
+        "median_diff": 0.0625
+      },
+      "(1.5, 0.5)": {
+        "n": 90,
+        "mean_diff": 0.002662037037037024,
+        "ci95_halfwidth": 0.023540144195052282,
+        "median_diff": 0.0
+      }
+    }
+  },
+  "secondary": {
+    "C6_full": {
+      "cost_mean": 24.714601769288315,
+      "completion_mean": 0.9174768518518519,
+      "reviews_mean": 0.0,
+      "censored_mean": 0.3933333333333333
+    },
+    "B3_WSPT_Q90": {
+      "cost_mean": 25.12410639624729,
+      "completion_mean": 0.9350462962962962,
+      "reviews_mean": 0.0,
+      "censored_mean": 0.43333333333333335
+    },
+    "RM_buytop": {
+      "cost_mean": 29.503368102705377,
+      "completion_mean": 0.8905092592592592,
+      "reviews_mean": 5.928888888888889,
+      "censored_mean": 0.3933333333333333
+    },
+    "C5_online": {
+      "cost_mean": 24.80228745486335,
+      "completion_mean": 0.9171759259259259,
+      "reviews_mean": 0.0,
+      "censored_mean": 0.43333333333333335
+    }
+  },
+  "rm_verdict": "RM 未显著优于 C5（CI 含 0 或为负）→ 零审查结论封死"
+}

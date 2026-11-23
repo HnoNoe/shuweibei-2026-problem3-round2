@@ -1,0 +1,8 @@
+{
+  "fig1_family_durations": "图 三族作业时长分布与对数正态拟合（eligible 池，train/validation 合并展示）",
+  "fig2_censoring": "图 截断样本处理对照：朴素丢弃 vs EM 含删失的 μ/σ 偏差（已知真值模拟）",
+  "fig3_prefix_r2": "图 前缀运动特征预测总时长的 R²：全窗口全模型为负，预测力证伪",
+  "fig4_ablation": "图 消融归因链：相邻配置配对差值与 95% CI（450 局/臂，CRN 配对）",
+  "fig5_btradeoff": "图 预留 b 的权衡扫描：准时率与 overrun 不变、费用单调上升（b=0.2 弱占优的量化验证）",
+  "fig6_paired_hist": "图 主对比逐 trial 配对差分分布：正值占优且均值显著离 0"
+}
