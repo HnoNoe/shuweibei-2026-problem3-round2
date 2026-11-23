@@ -362,6 +362,12 @@ TBL_FIXES = [
 ]
 
 
+MEDIA_SWAPS = {
+    "word/media/image12.png": "round2/figures3/fig1_workflow.png",
+    "word/media/image1.png": "round2/figures3/fig0_route.png",
+}
+
+
 def post_fix(path):
     tmp = path + ".tmp"
     followers = ('<w:semiHidden', '<w:unhideWhenUsed', '<w:qFormat', '<w:locked',
@@ -388,6 +394,9 @@ def post_fix(path):
         with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
             for n in zin.namelist():
                 data = zin.read(n)
+                if n in MEDIA_SWAPS:
+                    with open(MEDIA_SWAPS[n], "rb") as f:
+                        data = f.read()
                 if n == "word/settings.xml":
                     s = data.decode("utf-8")
                     s = s.replace("<w:uiCompat97To2003/>", "")
