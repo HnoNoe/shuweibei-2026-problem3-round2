@@ -1,0 +1,350 @@
+unit_id,dataset,family_id,environment_id,split,task,seg_idx,stage_pos,duration_s,path_length,displacement,speed_mean,speed_p90,speed_max,speed_std,acc_mean_abs,spread_mean,spread_std,hands_dist_mean,bad_ratio,speedR_mean
+U_1048a185fab3,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),0,0.0,13.0,1.5934,0.1407,0.1201,0.2291,0.4233,0.083,0.4797,0.0446,0.002,0.1444,0.00256,0.1299
+U_b13369ad45bb,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),1,0.333,12.0,1.2033,0.2055,0.0985,0.2044,0.2502,0.0662,0.3796,0.0441,0.0032,0.1389,0.0,0.1125
+U_ce9e51ef9e8b,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),2,0.667,20.0,3.4023,0.5902,0.1668,0.3562,0.8987,0.1378,0.8074,0.0464,0.0036,0.1919,0.03161,0.1553
+U_f366705925b2,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),3,1.0,8.799999999999997,1.4082,0.024,0.1561,0.3195,0.4834,0.107,0.7556,0.0481,0.0041,0.1602,0.0,0.129
+U_e04f8f06b956,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),0,0.0,4.4,0.6613,0.1011,0.1504,0.2783,0.7441,0.1093,0.7552,0.0422,0.0029,0.1276,0.0,0.1448
+U_7e29be17d4ef,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),1,0.125,4.0,0.5988,0.138,0.1492,0.2981,0.4095,0.1036,0.4631,0.0437,0.0032,0.1497,0.0,0.1735
+U_877fe1c52f3b,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),2,0.25,4.0,0.6847,0.1162,0.1711,0.3745,0.4889,0.118,0.7382,0.0454,0.0022,0.1291,0.0,0.1426
+U_e50c7024f3ad,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),3,0.375,8.6,0.9281,0.0885,0.1061,0.24,0.4319,0.0876,0.4473,0.0436,0.0015,0.1729,0.0,0.1414
+U_32e2844696ed,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),4,0.5,7.0,1.0059,0.1715,0.142,0.2711,0.464,0.0998,0.5497,0.0427,0.0028,0.1424,0.0,0.1176
+U_1594f36b7431,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),5,0.625,4.399999999999999,0.5762,0.1004,0.1306,0.2743,0.3286,0.0836,0.508,0.045,0.0028,0.1435,0.0,0.1538
+U_8e3239a21e8a,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),6,0.75,8.0,1.536,0.1801,0.1869,0.3756,0.6158,0.1293,1.0351,0.0456,0.0023,0.1543,0.10833,0.1794
+U_78762be9373b,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),7,0.875,8.600000000000001,1.6949,0.0293,0.1937,0.3981,0.5392,0.1245,0.8634,0.0467,0.0037,0.1747,0.01931,0.1106
+U_a7dbc72c7080,EgoDemo,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),8,1.0,7.0,1.5104,0.1755,0.2127,0.4336,0.6016,0.1408,0.8181,0.0455,0.0041,0.1752,0.0,0.1958
+U_9a605d0b6fbe,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,4.0,0.6424,0.1798,0.1557,0.2782,0.4272,0.0963,0.6501,0.0436,0.0016,0.125,0.0,0.1953
+U_ab92af3b27df,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,0.5,2.4000000000000004,0.2639,0.1237,0.1095,0.2137,0.2597,0.066,0.4318,0.0399,0.0024,0.1225,0.0,0.1973
+U_6ecec7b00cec,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,2,1.0,3.1999999999999997,0.3055,0.1385,0.0944,0.1716,0.2094,0.0539,0.3864,0.0392,0.0011,0.1274,0.0,0.1545
+U_c14e8ee87f43,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,2.8,0.4179,0.1755,0.1484,0.2778,0.4117,0.0937,0.6628,0.0399,0.0033,0.1176,0.0,0.182
+U_627c00b6e629,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,1.0,7.6,1.0583,0.0212,0.1358,0.2627,0.5098,0.0947,0.565,0.0418,0.0027,0.1314,0.0,0.1802
+U_4f387b89073e,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,2.8,0.4403,0.2291,0.1516,0.3398,0.5479,0.1316,0.7523,0.0418,0.0043,0.135,0.0,0.2183
+U_8ef310124166,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,0.5,5.6000000000000005,0.8516,0.1207,0.1503,0.3009,0.3566,0.1043,0.5871,0.0438,0.0021,0.1543,0.0,0.1646
+U_22c09bd4a0a5,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,2,1.0,2.6,0.68,0.1137,0.2547,0.4529,0.7188,0.1549,1.6857,0.0464,0.003,0.2546,0.02564,0.1798
+U_da03de054781,EgoDemo,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,0,0.0,3.0,1.3481,0.3806,0.4435,0.7375,0.8672,0.2289,1.0766,0.0349,0.0032,0.1782,0.0,0.4029
+U_1bea3f43850b,EgoDemo,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,1,0.333,3.4000000000000004,1.4215,0.2928,0.422,0.7325,0.8626,0.2241,1.0148,0.0363,0.003,0.1826,0.0,0.4085
+U_b57265b181de,EgoDemo,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,2,0.667,4.0,1.3348,0.3109,0.3301,0.6282,0.7372,0.1857,1.1513,0.0403,0.004,0.1633,0.0,0.2943
+U_8dff8345cf35,EgoDemo,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,3,1.0,3.4000000000000004,0.656,0.4164,0.1924,0.3197,0.3466,0.1021,0.7527,0.0413,0.0025,0.169,0.0,0.2039
+U_384f6452d001,EgoDemo,P,retail_x_supermarket_0121,train,Shampoo Shelf Stocking,0,0.0,8.0,3.1181,1.3838,0.3872,0.7603,0.8255,0.2497,0.9503,0.0362,0.0033,0.4247,0.0,0.4486
+U_265fa738c9ce,EgoDemo,P,retail_x_supermarket_0121,train,Shampoo Shelf Stocking,1,0.333,23.0,6.7207,0.1595,0.2908,0.6077,0.8569,0.2013,0.7957,0.0389,0.0025,0.1469,0.01447,0.3389
+U_8474a408d385,EgoDemo,P,retail_x_supermarket_0121,train,Shampoo Shelf Stocking,2,0.667,10.0,2.6814,0.3695,0.2678,0.4971,0.6581,0.1652,0.6878,0.0387,0.0023,0.1341,0.0,0.2904
+U_6a873dfd3e27,EgoDemo,P,retail_x_supermarket_0121,train,Shampoo Shelf Stocking,3,1.0,17.799999999999997,3.7516,0.4045,0.2078,0.4196,0.6774,0.1538,0.8228,0.039,0.0023,0.0906,0.06729,0.2032
+U_968cabe3bb64,EgoDemo,P,retail_x_supermarket_0054,train,Restock Juice Shelf,0,0.0,5.0,0.3602,0.0405,0.0697,0.1812,0.5147,0.0814,0.5209,0.0457,0.0009,0.2181,0.0,0.1624
+U_717a81746e66,EgoDemo,P,retail_x_supermarket_0054,train,Restock Juice Shelf,1,0.333,4.0,0.2951,0.1673,0.0703,0.1627,0.315,0.0679,0.364,0.0455,0.0008,0.202,0.0,0.2178
+U_b1770a728e24,EgoDemo,P,retail_x_supermarket_0054,train,Restock Juice Shelf,2,0.667,5.0,0.1531,0.0136,0.0276,0.0496,0.1242,0.0194,0.1876,0.0443,0.0003,0.1687,0.0,0.1536
+U_cb13c980b8bb,EgoDemo,P,retail_x_supermarket_0054,train,Restock Juice Shelf,3,1.0,4.600000000000001,0.566,0.1988,0.1162,0.2936,0.6192,0.1202,0.7281,0.044,0.0017,0.2494,0.0,0.1489
+U_98fe125cf531,EgoDemo,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,0,0.0,3.8,1.1598,0.0764,0.3038,0.5706,0.6652,0.1846,0.9286,0.0457,0.0039,0.1677,0.0,0.2904
+U_2303249b18df,EgoDemo,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,1,0.5,4.0,1.07,0.11,0.2704,0.6293,0.7971,0.2263,0.9993,0.045,0.0033,0.1662,0.0,0.2585
+U_2fa165e1c9a5,EgoDemo,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,2,1.0,3.000000000000001,0.695,0.3881,0.2315,0.4854,0.5555,0.16,0.8666,0.0433,0.0016,0.1707,0.0,0.2195
+U_9f4344433853,EgoDemo,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,0,0.0,3.4,1.4197,0.7865,0.4218,0.7039,0.9046,0.2339,0.9469,0.0405,0.0016,0.1043,0.08824,0.4427
+U_b02afa683faf,EgoDemo,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,1,0.333,6.0,2.0125,0.5098,0.3334,0.8159,0.9656,0.2959,0.7582,0.0395,0.0016,0.1616,0.0,0.3632
+U_15c8431bd37d,EgoDemo,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,2,0.667,1.5999999999999996,0.53,0.3637,0.3362,0.4395,3.2723,0.6311,4.5779,0.0418,0.0031,0.213,0.0,0.3272
+U_4d5e08597bc4,EgoDemo,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,3,1.0,1.4000000000000004,0.3491,0.3056,0.2478,0.6492,0.7127,0.2404,0.7979,0.044,0.0027,0.2403,0.0,0.2558
+U_9cca18ae3d1f,EgoDemo,P,retail_x_supermarket_0037,train,Align and restock condiments on shelves,0,0.0,3.0,1.1362,0.1401,0.3756,0.6464,0.9319,0.2446,1.1023,0.0395,0.0021,0.1502,0.0,0.3939
+U_0d6df8079c59,EgoDemo,P,retail_x_supermarket_0037,train,Align and restock condiments on shelves,1,0.333,3.4000000000000004,1.3216,0.4014,0.3893,0.7381,0.8953,0.2639,1.702,0.0422,0.0029,0.1729,0.0,0.4297
+U_ff944af4e86c,EgoDemo,P,retail_x_supermarket_0037,train,Align and restock condiments on shelves,2,0.667,2.6,0.4534,0.0147,0.1746,0.4459,0.5607,0.1609,0.8153,0.0406,0.0018,0.1487,0.0,0.1578
+U_16fd0cd0f7da,EgoDemo,P,retail_x_supermarket_0037,train,Align and restock condiments on shelves,3,1.0,2.1999999999999997,0.4252,0.27,0.1928,0.4665,0.7146,0.1935,0.8358,0.0419,0.0027,0.1238,0.0,0.1827
+U_cc33674c8891,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Beverages to Correct Locations,0,0.0,1.4,0.1656,0.1063,0.1057,0.2615,0.4418,0.1157,0.4455,0.0432,0.0005,0.2911,0.0,0.4138
+U_3b689136a018,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Beverages to Correct Locations,1,0.25,1.6,0.2196,0.1121,0.1276,0.4348,0.5992,0.1585,0.5949,0.0417,0.0008,0.2884,0.0,0.5061
+U_8903e6ee1fec,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Beverages to Correct Locations,2,0.5,2.0,0.1962,0.1145,0.0918,0.2677,0.436,0.1087,0.3643,0.0428,0.002,0.2658,0.0,0.3714
+U_03ff696fc311,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Beverages to Correct Locations,3,0.75,2.0,0.5127,0.188,0.2547,0.5854,0.8104,0.2404,1.0533,0.044,0.002,0.2477,0.0,0.3077
+U_ca6bad2be0df,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Beverages to Correct Locations,4,1.0,1.5999999999999996,0.5707,0.4996,0.3639,0.9439,1.0455,0.3737,1.2144,0.0425,0.0027,0.2278,0.0,0.3595
+U_94d47a921504,EgoDemo,A,retail_x_supermarket_0125,train,Return Misplaced Beverages to Correct Locations,0,0.0,4.4,1.0709,0.6784,0.2428,0.5625,0.708,0.1966,0.7812,0.0435,0.0023,0.2149,0.0,0.2272
+U_131fccda6f1b,EgoDemo,A,retail_x_supermarket_0125,train,Return Misplaced Beverages to Correct Locations,1,0.25,4.6,1.3023,0.6333,0.2806,0.6285,0.7113,0.2088,0.8392,0.0442,0.0023,0.1883,0.0,0.2664
+U_e19e805cf6bc,EgoDemo,A,retail_x_supermarket_0125,train,Return Misplaced Beverages to Correct Locations,2,0.5,4.4,1.6376,0.1317,0.3707,0.6494,0.863,0.2264,0.8141,0.0421,0.0014,0.1599,0.0,0.3798
+U_13a3b1e2f2c5,EgoDemo,A,retail_x_supermarket_0125,train,Return Misplaced Beverages to Correct Locations,3,0.75,5.6,1.8607,0.275,0.3327,0.5483,0.5855,0.1713,0.6173,0.0417,0.0017,0.132,0.0,0.3261
+U_7a5ebc701228,EgoDemo,A,retail_x_supermarket_0125,train,Return Misplaced Beverages to Correct Locations,4,1.0,3.8000000000000007,0.8086,0.3708,0.2111,0.4455,0.4883,0.1346,0.6115,0.0422,0.0012,0.1907,0.0,0.1586
+U_5aab58bb05d5,EgoDemo,A,retail_x_supermarket_0058,train,Return Misplaced Cleaning Products to Their Correct Locations,0,0.0,1.4,0.1462,0.0166,0.0904,0.1765,0.7091,0.1475,1.1542,0.047,0.0002,0.2175,0.0,0.3043
+U_5c403b245f6b,EgoDemo,A,retail_x_supermarket_0058,train,Return Misplaced Cleaning Products to Their Correct Locations,1,0.5,4.0,0.0997,0.0098,0.0179,0.0316,0.0548,0.0096,0.1667,0.0468,0.0001,0.2859,0.0,0.3086
+U_01b4c65e81ee,EgoDemo,A,retail_x_supermarket_0058,train,Return Misplaced Cleaning Products to Their Correct Locations,2,1.0,2.3999999999999995,0.11,0.0239,0.0355,0.0495,0.2588,0.0442,0.3544,0.047,0.0002,0.3739,0.0,0.3581
+U_41540a43a2a7,EgoDemo,A,retail_x_supermarket_0147,validation,Return Misplaced Cleaning Products to Their Correct Locations,0,0.0,3.0,0.4958,0.3933,0.16,0.5833,0.7725,0.2224,0.6121,0.0469,0.0019,0.2293,0.0,0.27
+U_0921399184bd,EgoDemo,A,retail_x_supermarket_0147,validation,Return Misplaced Cleaning Products to Their Correct Locations,1,0.2,4.0,0.559,0.3783,0.1359,0.6082,0.8456,0.2334,0.5296,0.0473,0.0014,0.2399,0.0,0.276
+U_edfa995465ee,EgoDemo,A,retail_x_supermarket_0147,validation,Return Misplaced Cleaning Products to Their Correct Locations,2,0.4,4.0,0.9417,0.2688,0.234,0.7487,0.937,0.2941,0.7719,0.0485,0.0011,0.2436,0.0,0.2528
+U_8f2fb018b990,EgoDemo,A,retail_x_supermarket_0147,validation,Return Misplaced Cleaning Products to Their Correct Locations,3,0.6,4.0,0.6689,0.4049,0.1656,0.5273,0.7459,0.2162,0.6118,0.0474,0.0006,0.2211,0.0,0.3009
+U_573e885e30ad,EgoDemo,A,retail_x_supermarket_0147,validation,Return Misplaced Cleaning Products to Their Correct Locations,4,0.8,3.0,0.5611,0.3278,0.1851,0.6199,0.7477,0.2314,0.7009,0.0467,0.0009,0.2132,0.0,0.2987
+U_1c65a39aab99,EgoDemo,A,retail_x_supermarket_0147,validation,Return Misplaced Cleaning Products to Their Correct Locations,5,1.0,2.0,0.3592,0.3222,0.1766,0.6195,0.6803,0.236,0.5385,0.0466,0.0004,0.2026,0.0,0.2564
+U_c9c5de0319a6,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Snacks to Correct Locations,0,0.0,1.8,0.7164,0.4182,0.3945,0.6227,0.767,0.1969,1.4132,0.037,0.0032,0.1818,0.0,0.3687
+U_a25cd536c8ad,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Snacks to Correct Locations,1,0.5,3.2,1.1777,0.3207,0.3662,0.7412,0.9614,0.2428,1.5261,0.0406,0.005,0.1817,0.0,0.3443
+U_59b44ac57ec8,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Snacks to Correct Locations,2,1.0,2.0,0.8,0.3401,0.3865,0.8305,1.168,0.2982,1.6876,0.0448,0.0033,0.1936,0.0,0.4203
+U_38486e70c0eb,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Snacks to Correct Locations,0,0.0,2.4,0.963,0.3943,0.3966,0.6415,0.8673,0.1797,1.5801,0.0469,0.0022,0.1627,0.0,0.4252
+U_5d4cc25638b0,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Snacks to Correct Locations,1,0.5,3.0000000000000004,0.9209,0.3992,0.3068,0.4949,0.6501,0.1505,1.0951,0.0473,0.0017,0.1669,0.0,0.2981
+U_a08f484c8802,EgoDemo,A,retail_x_supermarket_0054,train,Return Misplaced Snacks to Correct Locations,2,1.0,2.3999999999999995,0.9261,0.3368,0.3863,0.6853,0.8895,0.2375,1.3927,0.0452,0.0034,0.168,0.0,0.3372
+U_0cac261b86d3,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,0,0.0,2.0,0.3272,0.0828,0.1622,0.3681,0.5315,0.1144,0.7893,0.0428,0.003,0.1572,0.0,0.2267
+U_5e8f9060d151,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,1,0.333,2.0,0.4146,0.1209,0.2043,0.3971,0.4882,0.122,0.952,0.0438,0.0053,0.1225,0.0,0.2088
+U_e2749c43f5cc,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,2,0.667,2.0,0.3486,0.0528,0.1727,0.3279,0.5014,0.1081,0.7141,0.0411,0.0038,0.1263,0.0,0.1443
+U_9f3a4df5fcfd,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,3,1.0,2.4000000000000004,0.3926,0.1827,0.1627,0.4232,0.5748,0.1466,0.7888,0.0413,0.0025,0.1308,0.0,0.1212
+U_53de52fa48f4,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,0,0.0,3.0,0.3588,0.0519,0.1201,0.2297,0.3762,0.0838,0.5987,0.0437,0.0026,0.1127,0.0,0.1047
+U_cb2b6ee75108,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,1,0.333,3.4000000000000004,0.3977,0.1039,0.1172,0.2821,0.3924,0.0943,0.4314,0.0425,0.002,0.1162,0.0,0.1039
+U_ea7c74bdf337,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,2,0.667,3.6,0.5835,0.1329,0.16,0.3743,0.4113,0.1223,0.7748,0.0431,0.0022,0.1219,0.0,0.1053
+U_6dab7cc1da21,EgoDemo,A,retail_x_supermarket_0078,test,Water Bottle Boxes Facing Outward,3,1.0,3.0,0.6711,0.2817,0.2249,0.4778,0.8795,0.2033,0.9113,0.0444,0.0014,0.1323,0.0,0.2286
+U_f154248da0b8,EgoDemo,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,0,0.0,2.4,0.1501,0.0374,0.0627,0.1382,0.3726,0.085,0.406,0.0469,0.0006,0.1942,0.0,0.1275
+U_ce312e3ff600,EgoDemo,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,1,1.0,4.0,0.4942,0.233,0.121,0.3932,0.5848,0.1505,0.7994,0.0472,0.0008,0.2388,0.0,0.1875
+U_9422d5baebd2,EgoDemo,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,0,0.0,3.4,0.2826,0.1056,0.084,0.232,0.4566,0.1028,0.4415,0.0478,0.0005,0.2058,0.0,0.1482
+U_aa1265405d5c,EgoDemo,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,1,1.0,4.799999999999999,0.319,0.1213,0.0638,0.1172,0.5035,0.085,0.4081,0.0467,0.0005,0.2,0.0,0.1455
+U_6d191b696ae2,EgoDemo,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,0,0.0,2.0,0.0964,0.0657,0.0457,0.1487,0.1742,0.0523,0.1829,0.046,0.0004,0.1868,0.0,0.1512
+U_ec15ebcf95dc,EgoDemo,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,1,0.333,2.0,0.0561,0.011,0.0237,0.043,0.0496,0.0118,0.1625,0.0452,0.0002,0.3111,0.0,0.1581
+U_ead93d65785b,EgoDemo,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,2,0.667,2.0,0.4972,0.1732,0.2423,0.5402,0.7535,0.2031,1.2388,0.0461,0.0021,0.1796,0.0,0.1503
+U_e84ea0c9a553,EgoDemo,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,3,1.0,1.7999999999999998,0.2542,0.115,0.1347,0.3211,0.4308,0.1159,0.9194,0.0481,0.0027,0.1024,0.0,0.1401
+U_f1ff40914b8f,EgoDemo,A,retail_x_supermarket_0049,train,Beverage Sorting and Neat Arrangement,0,0.0,3.0,0.4548,0.0978,0.1493,0.2829,0.333,0.0846,0.5111,0.0431,0.0029,0.1287,0.0,0.1152
+U_793e8fe269fb,EgoDemo,A,retail_x_supermarket_0049,train,Beverage Sorting and Neat Arrangement,1,0.5,15.0,1.6733,0.1207,0.1081,0.2465,0.37,0.0845,0.5004,0.0443,0.0015,0.2233,0.0,0.1567
+U_d5b519730c09,EgoDemo,A,retail_x_supermarket_0049,train,Beverage Sorting and Neat Arrangement,2,1.0,4.399999999999999,0.662,0.2423,0.1464,0.3804,0.5006,0.1336,0.7511,0.0425,0.0023,0.1437,0.0,0.1778
+U_a0281b07b02b,EgoDemo,A,retail_x_supermarket_0058,train,Group bottled products by color,0,0.0,2.4,0.2607,0.0884,0.1061,0.2753,0.3613,0.097,0.5591,0.0461,0.0015,0.2148,0.0,0.4065
+U_2df896788551,EgoDemo,A,retail_x_supermarket_0058,train,Group bottled products by color,1,0.25,2.0000000000000004,0.1831,0.131,0.0871,0.2806,0.3925,0.104,0.4631,0.0458,0.0007,0.2054,0.0,0.4029
+U_bc05d558169a,EgoDemo,A,retail_x_supermarket_0058,train,Group bottled products by color,2,0.5,3.0,0.3362,0.0742,0.1099,0.1795,0.4623,0.0927,0.5985,0.0427,0.0022,0.2002,0.0,0.193
+U_fc5780c3b44d,EgoDemo,A,retail_x_supermarket_0058,train,Group bottled products by color,3,0.75,1.5999999999999996,0.2936,0.1106,0.1826,0.4887,0.5818,0.1869,1.1276,0.0403,0.0021,0.1336,0.0,0.1764
+U_7bb3ed386502,EgoDemo,A,retail_x_supermarket_0058,train,Group bottled products by color,4,1.0,1.0,0.1629,0.0928,0.1624,0.4105,0.5114,0.1458,0.8645,0.041,0.0018,0.1235,0.0,0.1502
+U_3abd5748d04c,EgoDemo,A,retail_x_supermarket_0066,train,Oil Bottle Row Alignment,0,0.0,2.0,0.3551,0.2378,0.1792,0.5606,0.9075,0.2438,0.8367,0.044,0.0007,0.233,0.0,0.1531
+U_1463cea2d10c,EgoDemo,A,retail_x_supermarket_0066,train,Oil Bottle Row Alignment,1,0.5,2.0,0.1478,0.0356,0.0701,0.1083,0.2908,0.063,0.5036,0.0429,0.0008,0.2203,0.0,0.1047
+U_b9d14988a9ab,EgoDemo,A,retail_x_supermarket_0066,train,Oil Bottle Row Alignment,2,1.0,1.7999999999999998,0.1579,0.0882,0.088,0.2446,0.4441,0.105,0.5457,0.0417,0.0013,0.2115,0.0,0.1279
+U_66fc3be49359,EgoDemo,P,retail_x_supermarket_0074,validation,Place Dishcloths and Scrub Sponges on Shelf,0,0.0,3.0,0.8404,0.1301,0.272,0.6284,0.8586,0.2084,1.2598,0.0448,0.0036,0.1903,0.0,0.3134
+U_48e7dcf6bf7b,EgoDemo,P,retail_x_supermarket_0074,validation,Place Dishcloths and Scrub Sponges on Shelf,1,0.2,3.0,0.7075,0.0754,0.2357,0.4494,0.6359,0.1598,0.8761,0.0445,0.0026,0.2308,0.0,0.3297
+U_2bae0bcaa89a,EgoDemo,P,retail_x_supermarket_0074,validation,Place Dishcloths and Scrub Sponges on Shelf,2,0.4,3.0,0.7361,0.1519,0.2435,0.4974,0.6374,0.1919,0.8587,0.0465,0.0015,0.1579,0.0,0.3136
+U_306dcc476929,EgoDemo,P,retail_x_supermarket_0074,validation,Place Dishcloths and Scrub Sponges on Shelf,3,0.6,4.0,1.504,0.1365,0.3697,0.6183,0.7633,0.1637,1.1451,0.0474,0.0016,0.1648,0.0,0.2952
+U_982915231b98,EgoDemo,P,retail_x_supermarket_0074,validation,Place Dishcloths and Scrub Sponges on Shelf,4,0.8,9.0,1.7866,0.2111,0.1925,0.4259,0.7056,0.1606,1.0856,0.0449,0.0036,0.1936,0.0,0.1726
+U_6569a3a10768,EgoDemo,P,retail_x_supermarket_0074,validation,Place Dishcloths and Scrub Sponges on Shelf,5,1.0,4.0,0.6162,0.2053,0.1514,0.3297,0.4981,0.112,0.7887,0.0429,0.0017,0.1259,0.0,0.1712
+U_805e1a5f0fa6,EgoDemo,A,retail_x_convenience_0014,train,Organize Disposable Paper Cups on Shelf,0,0.0,7.0,1.6457,0.1239,0.2322,0.4909,0.6736,0.1723,0.764,0.0412,0.0012,0.2346,0.0,0.2694
+U_677f76b94e60,EgoDemo,A,retail_x_convenience_0014,train,Organize Disposable Paper Cups on Shelf,1,0.5,11.0,1.9351,0.2796,0.1736,0.3744,0.581,0.132,0.721,0.0413,0.0017,0.2166,0.0,0.2166
+U_d7939b41129b,EgoDemo,A,retail_x_convenience_0014,train,Organize Disposable Paper Cups on Shelf,2,1.0,37.2,5.8069,0.2788,0.155,0.3974,0.6549,0.1501,0.5164,0.04,0.003,0.1829,0.0,0.1543
+U_9ea2a7c69e3a,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,3.0,0.4627,0.2629,0.1521,0.2479,0.3496,0.077,0.4792,0.0412,0.0015,0.1451,0.0,0.2415
+U_2cb32cac3a42,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,0.5,7.0,1.1465,0.1664,0.1593,0.2972,0.6396,0.1064,0.7569,0.0419,0.0026,0.1712,0.0,0.2532
+U_75c755e62bbf,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,2,1.0,1.1999999999999993,0.1655,0.0531,0.1336,0.2634,0.3459,0.0855,1.2377,0.0408,0.0027,0.2628,0.0,0.1433
+U_17ceb3330454,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,2.8,0.671,0.2032,0.2401,0.4733,0.6187,0.1626,0.9222,0.0431,0.0032,0.0944,0.0,0.2446
+U_a23c771cf504,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,0.5,4.0,1.0495,0.0735,0.2634,0.5277,0.6843,0.1831,0.8148,0.0418,0.0013,0.1111,0.0,0.2594
+U_2afc8e23a3ec,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,2,1.0,2.6000000000000005,0.5995,0.2576,0.2305,0.4999,0.7194,0.1946,1.1334,0.0432,0.0008,0.0969,0.0,0.2238
+U_0ac5f44d54a6,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,2.8,0.62,0.2655,0.2216,0.5163,0.6918,0.1891,0.899,0.0413,0.0023,0.0874,0.0,0.2263
+U_a1534d07ff91,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,0.5,3.6000000000000005,0.8813,0.0494,0.2454,0.4768,0.5277,0.1781,0.9277,0.0408,0.0016,0.095,0.0,0.236
+U_e1b8e8b4a9cf,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,2,1.0,3.4000000000000004,0.7582,0.1194,0.2226,0.4671,0.5949,0.1675,0.7918,0.0404,0.0015,0.093,0.0,0.2199
+U_54281a91f5ad,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,0,0.0,1.8,0.2705,0.1342,0.1474,0.2775,0.333,0.0838,0.6507,0.0403,0.0015,0.1662,0.0,0.2906
+U_298ec3d2f98d,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,1,0.333,4.0,0.5919,0.0871,0.1433,0.2579,0.377,0.0835,0.9362,0.0432,0.0019,0.1437,0.0,0.2003
+U_f13a3e991ce6,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,2,0.667,3.000000000000001,0.5512,0.0608,0.1811,0.3024,0.3652,0.0914,0.7013,0.0444,0.0028,0.1745,0.0,0.2064
+U_28dc9be4f5f7,EgoDemo,A,home_x_apartment_0342,train,Align and Arrange Seasoning Bottles,3,1.0,3.6,0.4124,0.0906,0.1116,0.2065,0.2776,0.0684,0.7254,0.0409,0.0045,0.2983,0.0,0.1633
+U_eaeb947a50af,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,0,0.0,8.9,1.5744,0.6055,0.1752,0.3119,0.5396,0.1012,0.6528,0.0431,0.0042,0.1485,0.0,0.1675
+U_24dd840d74c6,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,1,0.5,9.999999999999998,2.1597,0.3688,0.2153,0.4939,1.1373,0.2224,0.6669,0.0424,0.0027,0.1267,0.0,0.2307
+U_4224fd4fbf65,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,2,1.0,14.200000000000005,3.0529,0.1585,0.2113,0.4689,2.0175,0.2672,1.1437,0.0507,0.0045,0.1575,0.0,0.2046
+U_47c18c66bae2,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,0,0.0,8.5,1.0711,0.5382,0.1241,0.3103,0.4454,0.1081,0.4691,0.0464,0.0024,0.1175,0.0,0.1498
+U_3793733c3dcb,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,1,0.333,2.8000000000000007,0.4757,0.1941,0.1691,0.3908,0.6039,0.1396,0.9119,0.0479,0.0032,0.2629,0.0,0.2674
+U_767c629e6d71,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,2,0.667,9.099999999999998,2.3708,0.3597,0.2594,0.6176,0.8901,0.2185,1.1104,0.0429,0.0023,0.146,0.0,0.1224
+U_846267c4bb50,EgoPro,L,logistics_x_courier_station_0022,validation,Adjust Shelf Labels,3,1.0,13.0,2.5178,0.1864,0.1902,0.4246,0.8539,0.1666,0.8557,0.0475,0.0046,0.1988,0.0,0.2165
+U_6da9a65af004,EgoPro,P,hospitality_x_restaurant_0004,validation,Bottled Water Placement,0,0.0,11.9,5.242,0.312,0.4324,0.84,4.2146,0.4874,2.1979,0.0445,0.0032,0.1542,0.06983,0.4088
+U_475b7a55d5d3,EgoPro,P,hospitality_x_restaurant_0004,validation,Bottled Water Placement,1,0.5,9.999999999999998,3.8376,0.5148,0.3805,0.8651,2.1961,0.3496,1.685,0.0425,0.0029,0.1694,0.06,0.4176
+U_e045c5b73db2,EgoPro,P,hospitality_x_restaurant_0004,validation,Bottled Water Placement,2,1.0,16.4,3.3574,0.6007,0.2039,0.4572,1.4974,0.207,0.634,0.0446,0.0022,0.2695,0.0061,0.1944
+U_49db4ad6dd6c,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,0,0.0,0.9,0.0579,0.0253,0.0658,0.1692,0.2288,0.0602,0.6009,0.0443,0.0013,0.1921,0.0,0.2418
+U_ed3f74279fdf,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,1,0.333,1.0,0.2797,0.1243,0.2789,0.5339,0.5888,0.1842,1.4468,0.0385,0.0026,0.1229,0.0,0.2611
+U_fac6ecb1914f,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,2,0.667,2.5000000000000004,0.3508,0.2001,0.139,0.4235,0.6411,0.1693,0.6846,0.0457,0.0019,0.098,0.0,0.1886
+U_d0f4c93eed7d,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,3,1.0,1.3999999999999997,0.1801,0.1227,0.1284,0.2062,0.2266,0.0584,0.3918,0.0467,0.0031,0.2056,0.0,0.1957
+U_ec36ec078c69,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,0,0.0,1.0,0.2086,0.0415,0.1999,0.3485,0.491,0.0998,1.3826,0.0425,0.0019,0.2646,0.0,0.2131
+U_8d92104faf1b,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,1,0.333,1.4,0.4004,0.1074,0.2803,0.425,0.6626,0.152,1.5797,0.0406,0.0019,0.1265,0.0,0.2445
+U_b57e7f311aab,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,2,0.667,2.6,0.3508,0.1572,0.1343,0.3604,0.5161,0.1354,0.4458,0.046,0.0026,0.1141,0.0,0.1971
+U_3e08bd4bf027,EgoPro,P,office_x_corporate_office_0086,train,Checkout Gum Restocking_plum,3,1.0,1.2000000000000002,0.1622,0.0734,0.131,0.2284,0.2521,0.0648,0.6962,0.0467,0.0011,0.1814,0.0,0.171
+U_130725e1e21c,EgoPro,L,office_x_corporate_office_0086,train,"Price Tag Removal, Reapplication, and Alignment_plum",0,0.0,11.0,1.9649,0.1191,0.1773,0.4327,0.7536,0.176,0.6711,0.0394,0.0012,0.1154,0.0,0.1811
+U_3626387557ab,EgoPro,L,office_x_corporate_office_0086,train,"Price Tag Removal, Reapplication, and Alignment_plum",1,0.5,38.0,3.1159,0.2528,0.0801,0.2197,0.7219,0.0965,0.4,0.0399,0.0022,0.1116,0.0,0.0889
+U_928b9c0ff6d9,EgoPro,L,office_x_corporate_office_0086,train,"Price Tag Removal, Reapplication, and Alignment_plum",2,1.0,1.0,0.5366,0.1185,0.5385,0.7656,0.9259,0.2131,2.4077,0.0416,0.0032,0.1814,0.0,0.2372
+U_b2e9a55822d9,EgoPro,L,office_x_corporate_office_0086,train,"Price Tag Removal, Reapplication, and Alignment_plum",0,0.0,8.4,1.5488,0.3151,0.1833,0.4533,0.9952,0.1998,0.8246,0.0397,0.0018,0.1309,0.0,0.1767
+U_3082b71fe473,EgoPro,L,office_x_corporate_office_0086,train,"Price Tag Removal, Reapplication, and Alignment_plum",1,0.5,35.6,3.3915,0.2278,0.0935,0.2601,0.8656,0.1197,0.4057,0.0401,0.0026,0.1142,0.0,0.0954
+U_b969dd4ed7cb,EgoPro,L,office_x_corporate_office_0086,train,"Price Tag Removal, Reapplication, and Alignment_plum",2,1.0,1.6000000000000014,0.5689,0.404,0.3643,0.7572,1.8391,0.3083,2.55,0.0401,0.0038,0.1232,0.0,0.347
+U_3435c3fc5b3d,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,0,0.0,3.0,1.8482,0.7059,0.6116,1.2075,1.5919,0.3983,2.0897,0.0425,0.0023,0.1524,0.05495,0.6108
+U_6638221b8bae,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,1,0.143,4.0,2.6775,0.1576,0.6672,1.2008,1.9596,0.3799,2.4821,0.0409,0.0052,0.2794,0.0,0.6109
+U_c96379aa944b,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,2,0.286,5.0,3.1674,0.2613,0.6315,1.2054,1.8443,0.4089,2.0626,0.0397,0.0031,0.3161,0.07285,0.6306
+U_692fdd544b12,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,3,0.429,4.0,2.1071,0.7234,0.5206,1.0743,1.6165,0.3447,1.7589,0.0417,0.0034,0.2977,0.03306,0.6918
+U_acc3b1b2e4a8,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,4,0.571,4.0,1.4088,1.0576,0.3459,0.8409,1.2791,0.3332,1.4223,0.0416,0.0013,0.2889,0.0,0.4318
+U_4578a9b60755,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,5,0.714,4.0,2.9967,0.3351,0.718,1.3345,1.9727,0.4725,2.894,0.0395,0.0032,0.2934,0.08264,0.7071
+U_c33b3123e299,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,6,0.857,5.0,3.3459,0.4575,0.6589,1.1897,3.2216,0.5054,3.0855,0.0388,0.0031,0.2924,0.0596,0.7521
+U_4292b3577637,EgoPro,A,office_x_corporate_office_0086,train,Reorganize Shelf Items by Specification_plum,7,1.0,5.0,2.7554,0.4676,0.548,1.1109,1.4695,0.3887,1.9773,0.043,0.0044,0.2053,0.04636,0.4967
+U_9b8c87fdb4ab,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,0,0.0,3.0,0.7759,0.2705,0.2528,0.4564,0.668,0.1475,1.2119,0.0479,0.0025,0.172,0.0,0.3164
+U_9b734a3d2eea,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,1,1.0,51.8,14.6419,0.7654,0.2764,0.5921,1.0383,0.2145,1.1751,0.043,0.0034,0.1999,0.07653,0.4044
+U_2e2648f09259,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,0,0.0,4.8,1.4879,0.5461,0.3031,0.6062,0.6878,0.184,1.631,0.0414,0.0031,0.1699,0.0,0.3366
+U_720f8fbcd9de,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,1,0.111,5.000000000000001,1.6216,0.0654,0.3168,0.6634,0.8127,0.2346,1.1493,0.0408,0.0041,0.1703,0.18667,0.4301
+U_0ee155f2e8f7,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,2,0.222,5.0,1.4562,0.06,0.2822,0.5625,0.9192,0.2064,1.2611,0.0405,0.0046,0.1758,0.06,0.4022
+U_85903bd5bc15,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,3,0.333,5.0,1.3351,0.0839,0.2571,0.5581,0.7654,0.1978,1.2513,0.0408,0.0045,0.1935,0.0,0.3682
+U_75a2af25bc6b,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,4,0.444,5.0,1.3457,0.0635,0.2647,0.5289,0.6863,0.1821,1.1434,0.0416,0.0071,0.2286,0.0,0.4507
+U_19a7ba967394,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,5,0.556,5.0,1.7325,0.0424,0.3409,0.6001,1.1532,0.2349,1.6581,0.041,0.0035,0.2303,0.05333,0.5345
+U_479b9022fe7d,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,6,0.667,4.9999999999999964,1.0623,0.0576,0.2022,0.4954,0.6528,0.1767,0.9194,0.0425,0.0029,0.252,0.0,0.4085
+U_9ebe86d160ea,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,7,0.778,5.0,1.2235,0.1663,0.2342,0.4543,1.0289,0.2034,1.672,0.0429,0.003,0.2291,0.02,0.4505
+U_edc157c1bf77,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,8,0.889,5.0,1.2734,0.2563,0.2499,0.5347,0.6801,0.2003,0.8833,0.0434,0.0028,0.2021,0.0,0.4092
+U_047d10f1ef5c,EgoPro,A,logistics_x_courier_station_0011,test,Shelf Clearance,9,1.0,4.600000000000001,0.3282,0.1092,0.0665,0.134,0.4034,0.0667,0.429,0.0437,0.0007,0.3321,0.00725,0.2222
+U_8b0fdfa2802d,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,0,0.0,4.4,1.2796,0.2373,0.2905,0.5263,0.9643,0.2101,0.9129,0.041,0.0034,0.1417,0.0,0.3532
+U_15e33e44d964,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,1,0.167,5.6,1.8035,0.3723,0.317,0.6393,0.8132,0.219,1.1804,0.0411,0.0033,0.2116,0.02959,0.3434
+U_94178d798dca,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,2,0.333,8.0,3.1648,0.3968,0.3903,0.6903,1.1824,0.2294,1.5923,0.0387,0.0031,0.2091,0.08299,0.403
+U_e6ba4f605d29,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,3,0.5,7.0,2.6023,0.2792,0.3621,0.5962,1.5415,0.2673,1.6078,0.0393,0.0032,0.2179,0.03791,0.3787
+U_7a5058f3cde0,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,4,0.667,9.0,3.4911,0.1125,0.3778,0.7129,1.0043,0.2281,1.5958,0.0412,0.0048,0.2416,0.08856,0.38
+U_b3d858620703,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,5,0.833,10.4,1.401,0.1472,0.1293,0.2925,1.2337,0.1655,0.8977,0.0429,0.0025,0.1647,0.04473,0.2643
+U_9d189ea7bdfe,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,6,1.0,4.800000000000004,1.3607,0.2524,0.2821,0.5182,0.6032,0.1652,0.7343,0.0421,0.0031,0.1116,0.0,0.2871
+U_8b15ff2057d3,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,0,0.0,4.8,0.9489,0.4989,0.1955,0.3916,0.4933,0.119,0.8143,0.043,0.0034,0.1262,0.0,0.2057
+U_1e7a6bcd29cf,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,1,0.25,17.0,5.9024,0.6237,0.3411,0.6498,1.9342,0.2464,1.4206,0.0406,0.0031,0.2286,0.0,0.3629
+U_0775d676b6c5,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,2,0.5,11.999999999999996,3.6419,0.3651,0.2935,0.6045,0.805,0.1937,1.3239,0.0436,0.0049,0.2463,0.09722,0.3652
+U_d3dc7dc42663,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,3,0.75,9.0,1.439,0.3244,0.1563,0.3777,0.603,0.1332,0.8455,0.043,0.0019,0.1521,0.0,0.2754
+U_b28f6f1950af,EgoPro,P,home_x_apartment_0701,train,Store and Stack Bottled Water,4,1.0,5.0,1.4886,0.2788,0.2959,0.499,0.5935,0.1471,0.882,0.0449,0.0049,0.1407,0.00667,0.2947
+U_b895f306578d,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),0,0.0,10.0,1.3112,0.1427,0.1291,0.2736,0.4764,0.1062,0.7037,0.0424,0.0015,0.1367,0.0,0.1384
+U_e291a0bf772e,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),1,0.143,10.0,1.1072,0.0506,0.1095,0.2479,0.4047,0.0894,0.4367,0.0435,0.0014,0.1424,0.0,0.105
+U_3275fdb0a3bb,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),2,0.286,10.0,1.3695,0.3733,0.1357,0.3091,0.4468,0.1147,0.4711,0.0427,0.0012,0.1448,0.0,0.1255
+U_3fa839a5e440,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),3,0.429,10.0,1.3755,0.1215,0.1352,0.3134,0.5925,0.1234,0.6165,0.0424,0.0012,0.1466,0.0,0.102
+U_68ae22632f27,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),4,0.571,10.0,1.5121,0.3049,0.1497,0.3032,0.374,0.1036,0.538,0.043,0.0017,0.1456,0.0,0.1711
+U_fdbd9deb4418,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),5,0.714,10.0,1.2417,0.1051,0.1225,0.3223,0.4809,0.1222,0.4367,0.0434,0.0017,0.1638,0.0,0.1524
+U_c337cf2ee8b5,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),6,0.857,10.0,0.7853,0.188,0.0765,0.2042,0.4297,0.091,0.3442,0.0434,0.0014,0.1762,0.0,0.165
+U_c17c33b256f4,EgoPro,A,logistics_x_courier_station_0021,train,Straighten Tilted Items (Shelf Reset),7,1.0,11.799999999999995,0.5009,0.1246,0.041,0.1307,0.3178,0.0679,0.2129,0.0434,0.0007,0.1771,0.0,0.1098
+U_ffbb52bdb2bd,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),0,0.0,9.8,2.2207,0.1002,0.2192,0.4007,0.6526,0.1254,1.1856,0.0442,0.0025,0.1456,0.12542,0.21
+U_4644a7d9c095,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),1,0.167,6.1,1.2723,0.127,0.2017,0.3765,0.6825,0.1341,1.1454,0.0457,0.0032,0.1356,0.0,0.2335
+U_c5e4f585d338,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),2,0.333,7.9,1.7955,0.0593,0.2207,0.4361,0.7312,0.1532,1.1038,0.0477,0.0036,0.1559,0.0,0.2216
+U_7a43b550d814,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),3,0.5,9.099999999999998,1.9719,0.2503,0.2121,0.4112,0.8165,0.1405,1.1191,0.0474,0.0029,0.1556,0.0,0.1953
+U_b19c966dd52c,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),4,0.667,7.0,1.0899,0.089,0.1524,0.2859,0.6645,0.0992,0.7968,0.0458,0.0018,0.1465,0.0,0.2219
+U_a76bd15ece66,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),5,0.833,6.100000000000001,1.4291,0.0952,0.2299,0.4115,0.5641,0.1203,0.9757,0.044,0.003,0.1858,0.04372,0.2795
+U_c65a0d1bd03d,EgoPro,A,logistics_x_courier_station_0022,validation,Straighten Tilted Items (Shelf Reset),6,1.0,10.5,1.6171,0.0698,0.1495,0.3054,0.7251,0.1155,0.7187,0.0464,0.0032,0.1966,0.0,0.2068
+U_f11c0f54eb03,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,0,0.0,1.4,0.0567,0.0393,0.041,0.0717,0.2134,0.0429,0.2562,0.0479,0.0005,0.2857,0.0,0.1714
+U_c38c4dc507e9,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,1,0.333,2.0,0.1677,0.0613,0.0777,0.1153,1.0425,0.1815,1.1447,0.0471,0.0005,0.193,0.0,0.2029
+U_78067ba9d3a4,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,2,0.667,1.6,0.1599,0.0982,0.0993,0.2598,0.383,0.1097,0.6811,0.0451,0.0019,0.1291,0.0,0.1193
+U_3d44f81929c5,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,3,1.0,2.0,0.4291,0.1982,0.2113,0.4275,0.5186,0.1572,1.2273,0.046,0.0029,0.1235,0.0,0.161
+U_28eb9ce43a8b,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,0,0.0,2.0,0.0358,0.0034,0.0155,0.0253,0.0549,0.01,0.1252,0.0489,0.0003,0.1839,0.0,0.1824
+U_fb568f2532db,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,1,0.333,1.4,0.0249,0.0034,0.0156,0.0288,0.0481,0.01,0.1266,0.0484,0.0002,0.2784,0.0,0.1967
+U_d413bb76834f,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,2,0.667,1.6,0.0964,0.0191,0.0566,0.1473,0.3022,0.0741,0.414,0.0484,0.0016,0.3256,0.0,0.246
+U_1ae8dc04862d,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,3,1.0,3.8000000000000007,0.505,0.2242,0.1287,0.3497,0.438,0.1211,0.7264,0.0505,0.0034,0.1233,0.0,0.1472
+U_d712b645e467,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,0,0.0,2.4,0.118,0.09,0.0506,0.1904,0.3484,0.0836,0.2203,0.0425,0.0004,0.1927,0.0,0.1729
+U_23cd84041612,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,1,0.2,2.0000000000000004,0.0283,0.0025,0.0129,0.0193,0.0241,0.0052,0.0931,0.0428,0.0001,0.3291,0.0,0.1606
+U_b967749fb4a7,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,2,0.4,2.0,0.0865,0.0522,0.0422,0.1306,0.1705,0.048,0.242,0.0433,0.0008,0.3456,0.0,0.1896
+U_0290e09c82ec,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,3,0.6,1.5999999999999996,0.2455,0.1341,0.1556,0.3693,0.4154,0.1274,0.5586,0.0426,0.0028,0.1145,0.0,0.1638
+U_ee8ec6a1c3a3,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,4,0.8,2.0,0.2664,0.118,0.1322,0.2864,0.3215,0.0933,0.6198,0.0463,0.0031,0.1063,0.0,0.1553
+U_0eabd1cf2e70,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,5,1.0,0.8000000000000007,0.0728,0.0229,0.0888,0.152,0.182,0.0436,0.7944,0.0471,0.0018,0.1058,0.0,0.0626
+U_466943d5a36b,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,0,0.0,2.0,0.11,0.0463,0.0554,0.0972,0.3847,0.0701,0.4229,0.0456,0.0004,0.1937,0.0,0.1527
+U_13e9fc910e98,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,1,0.333,2.0,0.0589,0.0072,0.0243,0.0418,0.0695,0.0143,0.2233,0.0454,0.0003,0.3173,0.0,0.1897
+U_1dd6a7fefa76,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,2,0.667,2.0,0.7246,0.1924,0.3577,0.6107,0.8025,0.204,1.793,0.0474,0.0031,0.1734,0.0,0.1919
+U_48d3e50de32d,EgoStandard,A,retail_x_supermarket_0058,train,Align Mixed Merchandise to Shelf Front Edge,3,1.0,2.0,0.3034,0.1175,0.1491,0.3385,0.4039,0.116,0.8429,0.0487,0.0027,0.101,0.0,0.1654
+U_dd452a914eae,EgoStandard,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,0,0.0,4.0,0.4671,0.1904,0.1152,0.3941,0.7837,0.1564,0.8627,0.049,0.0005,0.2632,0.0,0.2085
+U_2852d431925b,EgoStandard,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,1,1.0,3.2,0.2719,0.0097,0.0811,0.1618,0.737,0.1129,0.8363,0.0486,0.0004,0.2099,0.0,0.1536
+U_5b8229c5db48,EgoStandard,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,0,0.0,3.0,0.2458,0.1764,0.0808,0.181,0.7573,0.1756,0.8167,0.0456,0.0005,0.2121,0.0,0.1596
+U_806c4f2aef84,EgoStandard,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,1,0.5,4.0,0.1615,0.0553,0.0378,0.0646,0.5133,0.0632,0.298,0.0461,0.0008,0.1877,0.0,0.1223
+U_ee2abc243961,EgoStandard,A,retail_x_supermarket_0054,train,Align Snack Bags to Shelf Front Edge,2,1.0,3.0,0.3879,0.2723,0.1273,0.4059,0.5442,0.1688,0.6065,0.0463,0.0012,0.1712,0.0,0.1349
+U_e50a2ff12222,EgoStandard,P,retail_x_supermarket_0124,train,Bread Shelf Stocking,0,0.0,11.0,2.4402,0.1982,0.2172,0.3856,0.5073,0.1134,0.9046,0.0414,0.0027,0.1862,0.0,0.1891
+U_07a5c2a76f3c,EgoStandard,P,retail_x_supermarket_0124,train,Bread Shelf Stocking,1,0.25,33.0,7.4168,0.1114,0.2212,0.4248,0.6746,0.1338,0.7211,0.0429,0.0019,0.2189,0.0,0.1893
+U_c3c0c3e39fe4,EgoStandard,P,retail_x_supermarket_0124,train,Bread Shelf Stocking,2,0.5,19.0,4.4973,0.1938,0.2335,0.4321,0.6697,0.1334,0.8073,0.0415,0.0019,0.1921,0.0,0.2095
+U_55c6c826899b,EgoStandard,P,retail_x_supermarket_0124,train,Bread Shelf Stocking,3,0.75,60.0,11.3799,0.1791,0.1863,0.3919,0.6728,0.1359,0.721,0.0442,0.0032,0.193,0.0,0.1879
+U_5e8e58781044,EgoStandard,P,retail_x_supermarket_0124,train,Bread Shelf Stocking,4,1.0,8.0,1.7039,0.3269,0.2075,0.3726,0.5302,0.109,0.9684,0.0446,0.0024,0.3292,0.0,0.2131
+U_9f12095ecf12,EgoStandard,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,0,0.0,3.4,1.7268,0.5861,0.5067,0.8363,1.3115,0.2963,1.5156,0.0379,0.0031,0.1359,0.0,0.491
+U_c6c030b11ae2,EgoStandard,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,1,0.333,4.6,2.0103,0.3398,0.4337,0.9386,1.4114,0.3559,1.272,0.0398,0.0035,0.133,0.0,0.4507
+U_f1b9b4b7a085,EgoStandard,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,2,0.667,2.4000000000000004,0.5926,0.4299,0.2425,0.6888,0.7945,0.2539,1.1011,0.0418,0.0027,0.2197,0.0,0.2641
+U_e0a61701305e,EgoStandard,P,retail_x_supermarket_0054,train,Cleaning Product Restocking,3,1.0,1.1999999999999993,0.2982,0.2361,0.2493,0.7014,0.7505,0.2479,0.9912,0.045,0.0019,0.2377,0.0,0.2331
+U_a2bc868ef895,EgoStandard,P,retail_x_supermarket_0059,train,Cleaning Product Restocking,0,0.0,7.0,3.7378,3.1165,0.5319,0.8125,1.0835,0.2104,1.1999,0.0554,0.0009,0.2612,0.0,0.6229
+U_310f5ce09eeb,EgoStandard,P,retail_x_supermarket_0059,train,Cleaning Product Restocking,1,0.25,10.0,4.7821,2.6506,0.4675,0.7644,1.1301,0.2217,2.0518,0.0444,0.0032,0.5039,0.0,0.5519
+U_6704eee082d0,EgoStandard,P,retail_x_supermarket_0059,train,Cleaning Product Restocking,2,0.5,24.0,5.3803,0.1665,0.2198,0.4377,0.7695,0.1483,0.9195,0.0473,0.0039,0.1696,0.01942,0.1856
+U_dea32f30b9ce,EgoStandard,P,retail_x_supermarket_0059,train,Cleaning Product Restocking,3,0.75,125.0,26.1312,0.2888,0.2049,0.4316,1.0567,0.1669,0.8513,0.0474,0.0039,0.1425,0.02159,0.2198
+U_78e1a84b6196,EgoStandard,P,retail_x_supermarket_0059,train,Cleaning Product Restocking,4,1.0,7.800000000000011,6.399,3.8861,0.8118,1.174,2.3563,0.3825,2.456,0.0499,0.0032,0.4853,0.03404,0.7033
+U_b824e4fc4b9c,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,0,0.0,2.0,0.7058,0.3654,0.3561,0.6886,0.8338,0.244,0.9501,0.0414,0.0021,0.1611,0.0,0.3649
+U_74c064a725d9,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,1,0.045,4.0,2.115,1.4279,0.5293,0.9174,0.9795,0.3201,0.8784,0.0406,0.0046,0.1524,0.0,0.5514
+U_f4993f70a31e,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,2,0.091,4.0,2.5107,1.3955,0.6268,1.0598,1.1895,0.3556,1.0551,0.0416,0.0023,0.2002,0.0,0.6261
+U_e23922b68755,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,3,0.136,4.0,2.0203,1.2893,0.5071,0.9564,1.0728,0.3233,0.9269,0.0428,0.003,0.1614,0.0,0.5404
+U_6dca41ed1f2f,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,4,0.182,4.0,1.8913,1.5384,0.4705,0.9816,1.1785,0.3958,0.9936,0.0423,0.0037,0.1992,0.0,0.5213
+U_142471d7ea43,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,5,0.227,4.0,2.0105,1.6774,0.4993,0.9145,0.9908,0.3211,0.8985,0.0451,0.0029,0.1703,0.0,0.5523
+U_d61a92a550ba,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,6,0.273,4.0,2.8291,1.0223,0.7055,1.0272,1.1678,0.3208,1.2131,0.042,0.0032,0.2016,0.0,0.7155
+U_7e38a68b302a,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,7,0.318,4.0,2.1404,0.2908,0.5334,1.0821,1.2752,0.3608,1.4235,0.0423,0.0041,0.156,0.0,0.5852
+U_d0632c3ff409,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,8,0.364,4.0,2.8906,0.6785,0.7203,1.0101,1.255,0.2647,1.2458,0.0415,0.0018,0.2073,0.0,0.6891
+U_cdbaae3cdfb2,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,9,0.409,4.0,2.177,1.4696,0.542,0.9681,1.1355,0.3483,1.0529,0.0423,0.0033,0.1755,0.0,0.5586
+U_abb7c44906a3,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,10,0.455,4.0,2.3401,1.5808,0.5816,0.9619,1.174,0.3081,0.9742,0.0435,0.0018,0.1689,0.0,0.5826
+U_387861d820c8,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,11,0.5,4.0,2.0805,1.8083,0.5156,1.0486,1.2124,0.3927,1.0318,0.0418,0.0034,0.1601,0.0,0.547
+U_a3bf12232ce4,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,12,0.545,4.0,2.0374,1.8261,0.5039,0.8444,0.8957,0.3213,0.7951,0.0432,0.0028,0.1731,0.0,0.5123
+U_d541467730e8,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,13,0.591,4.0,2.4787,1.3662,0.6165,1.0483,1.2939,0.3507,1.196,0.0417,0.0022,0.1815,0.0,0.6037
+U_4be156c23e81,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,14,0.636,4.0,2.3886,0.6651,0.5981,0.9803,1.077,0.3275,0.956,0.0433,0.0038,0.1835,0.0,0.615
+U_85125039b4f2,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,15,0.682,4.0,2.3922,0.3128,0.5976,0.8745,0.9659,0.2739,1.1548,0.0424,0.0025,0.2104,0.0,0.6213
+U_ffdcf925e1c2,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,16,0.727,4.0,2.2362,1.0169,0.5582,0.9409,1.1221,0.3211,0.8701,0.0417,0.0033,0.2071,0.0,0.5621
+U_915950f41534,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,17,0.773,4.0,2.3834,1.6737,0.5935,0.8814,0.9703,0.2682,0.8317,0.0431,0.0022,0.1765,0.0,0.5481
+U_1048280f5018,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,18,0.818,4.0,2.5179,1.7808,0.6265,0.9922,1.1874,0.3317,1.3368,0.0417,0.0033,0.1757,0.0,0.5911
+U_0d54c7b8f40b,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,19,0.864,4.0,1.8788,1.5909,0.4678,0.9222,1.0653,0.3732,0.8764,0.0435,0.0027,0.183,0.0,0.4596
+U_fcf7b0715c45,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,20,0.909,4.0,2.6389,1.263,0.6578,0.9988,1.3419,0.3351,1.0767,0.0408,0.0027,0.1882,0.0,0.6354
+U_aec675e9e7d3,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,21,0.955,4.0,2.0172,1.5911,0.5029,0.8949,0.9584,0.3031,0.9175,0.0435,0.003,0.1772,0.0,0.4793
+U_79753a5e06fd,EgoStandard,P,retail_x_supermarket_0071,train,Cola Shelf Stocking,22,1.0,47.6,9.668,0.3351,0.2,0.4724,0.9494,0.175,0.9139,0.0432,0.0024,0.1555,0.02099,0.2206
+U_63c091f3cb39,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,0,0.0,4.0,2.8006,0.2635,0.7069,1.5678,2.0028,0.4775,1.6832,0.0386,0.003,0.1015,0.125,0.6799
+U_8887257ee962,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,1,0.333,4.0,2.8378,0.078,0.7173,1.5013,2.4681,0.5456,1.9529,0.0404,0.0029,0.1024,0.0,0.7165
+U_a4aee5c23d87,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,2,0.667,4.0,1.727,0.8609,0.4337,0.8456,1.0614,0.2792,1.658,0.0398,0.0025,0.1148,0.0,0.4091
+U_d7293d33dc3f,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,3,1.0,4.399999999999999,1.1918,0.6331,0.2697,0.7055,0.8403,0.2625,1.2631,0.0472,0.0031,0.2142,0.0,0.2276
+U_e6a6e59c1614,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,0,0.0,3.0,1.3525,0.3877,0.4504,0.8608,1.0419,0.2785,1.4703,0.0397,0.0016,0.1045,0.0,0.4489
+U_f45b5c01b71f,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,1,0.2,4.0,2.1837,0.2268,0.5465,0.8947,1.0648,0.2901,1.3802,0.0404,0.0033,0.117,0.0,0.5702
+U_d34ad351ae02,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,2,0.4,4.0,2.1327,0.6676,0.5322,0.9771,1.1408,0.3015,1.3423,0.0391,0.0025,0.1311,0.0,0.5532
+U_5443c2b8e71d,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,3,0.6,2.0,0.0572,0.0115,0.0291,0.0564,0.212,0.0408,0.1854,0.0491,0.0006,0.2367,0.0,0.0482
+U_caaf8d52bada,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,4,0.8,3.0,0.6197,0.5017,0.2072,0.5164,0.6515,0.2156,0.557,0.0455,0.0009,0.2333,0.0,0.2198
+U_65cab1743cce,EgoStandard,P,retail_x_supermarket_0054,train,Fill Shelf Gaps with Same-Category Items,5,1.0,1.8000000000000007,0.2739,0.1326,0.155,0.4679,0.5015,0.1614,0.491,0.0475,0.0014,0.232,0.0,0.1882
+U_883c40426953,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,0,0.0,3.0,0.8086,0.0145,0.2683,0.6832,0.7423,0.2671,0.9331,0.043,0.0017,0.2086,0.07778,0.5115
+U_b03fb692f807,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,1,0.5,4.0,0.2033,0.0768,0.0479,0.0889,0.3489,0.0708,0.4144,0.0441,0.001,0.2657,0.0,0.3523
+U_36ad7cb0b741,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,2,1.0,4.0,0.5423,0.2908,0.1347,0.3951,0.6553,0.1686,0.6458,0.0423,0.0014,0.1773,0.0,0.1671
+U_385ab234964b,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,0,0.0,2.4,0.8933,0.2916,0.3768,0.8751,1.0109,0.3409,1.403,0.0403,0.0016,0.2313,0.0,0.5296
+U_ab0b458fe7d0,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,1,0.333,3.0000000000000004,0.8029,0.2573,0.2754,0.6326,1.0266,0.2728,0.7677,0.0411,0.0011,0.1927,0.0,0.404
+U_14d1d69c35e8,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,2,0.667,4.0,0.9752,0.5932,0.244,0.6675,0.8658,0.2509,1.0478,0.0435,0.0023,0.2073,0.0,0.3058
+U_bc4d229c0bfc,EgoStandard,P,retail_x_supermarket_0054,train,Restock Juice Shelf,3,1.0,3.4000000000000004,1.1901,0.4642,0.341,0.921,1.138,0.314,1.999,0.0426,0.0044,0.1947,0.0,0.3544
+U_6d2c94b40bb2,EgoStandard,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,0,0.0,3.4,1.0305,0.2024,0.3016,0.5366,0.7471,0.1937,1.3027,0.0361,0.0019,0.127,0.0,0.3454
+U_897f87a60f9e,EgoStandard,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,1,0.5,3.6,1.1598,0.1417,0.3218,0.6515,0.8376,0.2278,1.1422,0.0372,0.003,0.1381,0.0367,0.3541
+U_6e5de10192aa,EgoStandard,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,2,1.0,3.4000000000000004,1.0712,0.246,0.3107,0.6298,0.8638,0.2277,1.4113,0.0366,0.0032,0.1347,0.0,0.3145
+U_ae64913707ec,EgoStandard,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,0,0.0,3.4,1.0633,0.2671,0.3071,0.5918,0.7554,0.1916,1.8744,0.0353,0.0033,0.1284,0.0,0.3268
+U_53f9212e7c69,EgoStandard,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,1,0.5,4.0,1.4646,0.2721,0.3638,0.7464,0.9649,0.2593,1.4569,0.0371,0.003,0.1379,0.0,0.3583
+U_0afcd87332c3,EgoStandard,P,retail_x_supermarket_0037,train,Ketchup Shelf Restocking,2,1.0,3.4000000000000004,0.9754,0.2707,0.2846,0.5264,0.6843,0.1716,1.2927,0.037,0.0026,0.129,0.0,0.3385
+U_5ead5c547ed8,EgoStandard,P,retail_x_supermarket_0074,validation,Restock Bottled Water onto Shelf,0,0.0,2.0,0.8312,0.4404,0.4202,1.1676,1.3491,0.4096,1.1712,0.045,0.0019,0.1744,0.0,0.3388
+U_48555f70f8e7,EgoStandard,P,retail_x_supermarket_0074,validation,Restock Bottled Water onto Shelf,1,0.2,3.0,1.7918,0.1864,0.601,1.1637,1.3122,0.403,1.3981,0.0422,0.0039,0.1617,0.0,0.5915
+U_860e0ece4014,EgoStandard,P,retail_x_supermarket_0074,validation,Restock Bottled Water onto Shelf,2,0.4,3.0,0.9172,0.3484,0.3083,0.8218,1.007,0.3107,1.0261,0.0423,0.0027,0.1686,0.02198,0.2728
+U_781ac43756da,EgoStandard,P,retail_x_supermarket_0074,validation,Restock Bottled Water onto Shelf,3,0.6,3.0,1.6372,0.6949,0.5409,1.2637,2.6191,0.6232,2.1888,0.0458,0.0046,0.2126,0.15385,0.6356
+U_003a5cdc9042,EgoStandard,P,retail_x_supermarket_0074,validation,Restock Bottled Water onto Shelf,4,0.8,3.0,1.8467,0.2645,0.6193,1.2469,1.7058,0.4982,1.8999,0.0448,0.0027,0.1396,0.15385,0.5999
+U_e5525e75bd48,EgoStandard,P,retail_x_supermarket_0074,validation,Restock Bottled Water onto Shelf,5,1.0,3.6000000000000014,0.8738,0.5327,0.2456,0.6923,1.5086,0.3226,0.7682,0.0427,0.0028,0.1725,0.04587,0.2511
+U_ca3674d59010,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,0,0.0,10.0,4.9911,0.8032,0.4981,0.7611,0.8946,0.1969,0.7779,0.0429,0.0018,0.1855,0.0,0.4857
+U_c3417d2f8db3,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,1,0.062,11.0,6.1533,0.6032,0.5588,0.8246,0.9812,0.2117,0.7281,0.0423,0.0013,0.1863,0.0,0.5613
+U_5e91bd361537,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,2,0.125,11.0,5.1661,0.3962,0.4696,0.7416,0.8958,0.2223,0.72,0.0414,0.0017,0.1918,0.0,0.4723
+U_2ddf6f6c6a9a,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,3,0.188,10.0,5.1982,0.1687,0.5182,0.8044,1.0059,0.2362,1.0501,0.041,0.0024,0.1905,0.0,0.5165
+U_dac5ad946b69,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,4,0.25,12.0,5.7935,0.2464,0.4815,0.7235,0.9911,0.1915,0.9075,0.0413,0.0016,0.1881,0.0,0.4915
+U_dd5d8c35b1d9,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,5,0.312,11.0,6.0696,0.3982,0.5503,0.8741,1.0679,0.2472,0.818,0.0416,0.0022,0.1802,0.0,0.5331
+U_dea6bcc3c652,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,6,0.375,10.0,5.276,0.2712,0.5269,0.7622,0.9857,0.1992,0.8526,0.042,0.0015,0.1821,0.0,0.5168
+U_4641e6638f68,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,7,0.438,10.0,5.4728,0.0944,0.5468,0.8629,1.0387,0.2457,0.7962,0.041,0.0018,0.1755,0.0,0.5687
+U_497203f6eae4,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,8,0.5,9.0,5.0056,0.2225,0.5556,0.8925,1.2359,0.2639,0.9614,0.042,0.0013,0.1755,0.0,0.5556
+U_d879f586e275,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,9,0.562,10.0,5.3511,0.3946,0.5333,0.7721,0.9227,0.2144,0.9082,0.0417,0.0012,0.1951,0.0,0.5544
+U_14393cbbda4a,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,10,0.625,9.0,5.1907,0.7405,0.5756,0.7909,0.9225,0.1937,0.8405,0.0431,0.0017,0.1882,0.0,0.6059
+U_2fdab630ae11,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,11,0.688,9.0,5.0957,0.3661,0.565,0.7708,0.8803,0.1789,1.0228,0.0404,0.0027,0.2001,0.0,0.5519
+U_5379de8afc51,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,12,0.75,12.0,5.6626,0.9594,0.4682,0.7863,1.0841,0.2504,1.0373,0.0421,0.0031,0.1959,0.04155,0.4734
+U_664e3f2dcc1c,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,13,0.812,4.0,1.253,0.4013,0.3071,0.5395,0.6867,0.194,1.5978,0.0443,0.0034,0.1705,0.20661,0.292
+U_4ed8de204d20,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,14,0.875,2.0,0.6948,0.1851,0.3404,0.528,0.5967,0.1616,1.5478,0.0463,0.002,0.2052,0.0,0.2774
+U_e7f30c18697b,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,15,0.938,4.0,1.0925,0.3128,0.2672,0.5238,0.6061,0.179,1.1482,0.0461,0.0019,0.1489,0.0,0.1958
+U_5f4e5f48752d,EgoStandard,P,retail_x_supermarket_0087,train,Restock Snack Bags on Shelf,16,1.0,3.4000000000000057,0.9609,0.4751,0.2785,0.4848,0.6069,0.1546,1.129,0.0441,0.0029,0.1861,0.0,0.2923
+U_1697db5cd0f9,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,0,0.0,6.0,2.8175,0.8272,0.4715,0.9912,1.1251,0.3127,0.8719,0.0377,0.0029,0.1312,0.0,0.4455
+U_fc40a367bf97,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,1,0.091,9.0,4.3428,0.985,0.4857,0.8472,1.4612,0.279,1.0096,0.043,0.0017,0.1415,0.0,0.5064
+U_ba943161d03e,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,2,0.182,10.0,5.089,0.4649,0.5104,0.9518,1.8854,0.3474,1.3024,0.0431,0.0021,0.1519,0.07667,0.489
+U_9bdf32265dc2,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,3,0.273,11.0,5.4916,0.3378,0.499,0.8224,2.0185,0.3262,1.2963,0.0432,0.0017,0.1726,0.05152,0.4872
+U_5c8840f3d7a2,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,4,0.364,9.0,4.32,0.5228,0.4796,0.8882,1.5573,0.3174,1.1154,0.043,0.0041,0.1561,0.0,0.4788
+U_4b9105d7a905,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,5,0.455,9.0,4.2399,0.6462,0.4715,0.8806,1.5235,0.317,1.1835,0.0433,0.002,0.2055,0.0,0.4609
+U_7c11a955b887,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,6,0.545,8.0,3.6783,0.6954,0.4622,0.7838,1.1438,0.234,0.8209,0.0412,0.0019,0.1961,0.0,0.4837
+U_b2e13d7edf90,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,7,0.636,9.0,4.7419,0.4753,0.5285,0.9657,1.2778,0.2934,1.0632,0.0413,0.0023,0.1353,0.0,0.5293
+U_0990616bca8a,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,8,0.727,9.0,4.7352,0.5625,0.5287,0.8695,1.2294,0.258,0.9289,0.0416,0.0021,0.2127,0.0,0.5384
+U_7778088a26dd,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,9,0.818,9.0,4.6651,0.7706,0.5202,0.9269,1.4546,0.3078,1.0113,0.0404,0.0038,0.16,0.0,0.5045
+U_069a01bc021e,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,10,0.909,8.0,4.4737,0.3886,0.5604,0.9027,1.1353,0.2649,1.1659,0.0419,0.0018,0.1894,0.0125,0.5327
+U_2d0574090f7a,EgoStandard,P,logistics_x_courier_station_0011,test,Shelf Restocking,11,1.0,8.799999999999997,4.4178,0.6075,0.5027,0.8597,1.1718,0.2459,1.1332,0.0436,0.0032,0.1506,0.00758,0.4888
+U_13c979dd30da,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,0,0.0,2.4,0.4999,0.2287,0.2119,0.4597,0.6287,0.1582,0.6262,0.0423,0.0023,0.2573,0.0,0.2328
+U_3ae95ca795f6,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,1,0.05,5.0,2.9471,1.3703,0.5931,0.8853,1.1362,0.2676,0.8473,0.0437,0.0025,0.263,0.0,0.599
+U_c207a8068522,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,2,0.1,4.0,2.3615,1.3134,0.5953,1.0565,1.1855,0.303,0.8152,0.0433,0.0014,0.1951,0.0,0.5848
+U_8550ed770112,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,3,0.15,4.999999999999998,3.1351,1.2782,0.6319,1.1906,1.2678,0.3639,1.0781,0.0455,0.0027,0.2617,0.0,0.6414
+U_964f5cee6bbc,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,4,0.2,4.0,2.4005,0.9811,0.606,1.0237,1.4531,0.3013,1.0351,0.0431,0.0019,0.2179,0.0,0.5991
+U_4f960321a481,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,5,0.25,5.600000000000001,3.0354,1.0515,0.5463,1.028,1.1751,0.2985,0.8334,0.0456,0.0028,0.2694,0.0,0.505
+U_82f473eb3d55,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,6,0.3,4.399999999999999,2.1748,1.2747,0.4989,0.7939,0.8663,0.2465,0.7501,0.0433,0.0018,0.2033,0.0,0.4796
+U_f52f80be6f3f,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,7,0.35,8.600000000000001,3.8872,1.3318,0.4542,0.8679,0.9882,0.2493,0.6427,0.0433,0.0031,0.2337,0.0,0.4396
+U_5a3a0f961093,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,8,0.4,4.399999999999999,2.3054,1.4566,0.529,0.975,1.0909,0.2584,0.6768,0.0416,0.0013,0.1773,0.0,0.5161
+U_e1fcfc1b4f8a,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,9,0.45,5.0,2.6863,1.2556,0.5414,0.9584,1.0006,0.2872,0.7426,0.042,0.0008,0.2128,0.0,0.532
+U_612844c4eb47,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,10,0.5,4.600000000000001,2.0811,1.3052,0.4577,0.9714,1.0809,0.3015,0.7914,0.0422,0.0008,0.159,0.0,0.4327
+U_01ff594bc1be,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,11,0.55,5.0,2.9289,1.406,0.5901,1.0711,1.2001,0.3312,0.8069,0.0412,0.0015,0.1905,0.0,0.5846
+U_e77e003ce10d,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,12,0.6,4.0,2.2673,1.3441,0.5739,0.949,1.0194,0.2321,0.5893,0.0416,0.0013,0.1496,0.0,0.543
+U_c9fe4b4096ce,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,13,0.65,5.0,2.7152,1.6696,0.5465,1.0607,1.1886,0.3226,0.8909,0.0412,0.0017,0.1821,0.0,0.5505
+U_7d23eadcea04,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,14,0.7,4.400000000000006,2.5753,1.6022,0.5918,0.9723,1.2829,0.2753,0.8931,0.0424,0.0016,0.1908,0.0,0.5729
+U_dca513a69c49,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,15,0.75,4.599999999999994,2.3557,1.5843,0.5174,1.003,1.227,0.3007,0.8073,0.0468,0.0018,0.2636,0.0,0.5353
+U_eca863efafec,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,16,0.8,6.400000000000006,2.5967,1.7844,0.407,0.7723,1.0398,0.2796,0.6694,0.0433,0.0021,0.1971,0.0,0.4498
+U_b8e762eaa8fb,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,17,0.85,9.599999999999994,4.8069,1.972,0.5015,1.0,1.2708,0.2934,0.8397,0.0426,0.0022,0.2807,0.0625,0.43
+U_c9899a1a7f58,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,18,0.9,4.400000000000006,2.648,2.0666,0.6064,0.8369,0.883,0.2091,0.6309,0.0431,0.0008,0.1823,0.0,0.5771
+U_d525ed120978,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,19,0.95,6.599999999999994,3.2218,2.4736,0.4902,0.9468,1.2318,0.3011,0.7991,0.0442,0.0015,0.2601,0.0,0.4548
+U_15f05711201d,EgoStandard,P,logistics_x_courier_station_0041,test,Shelf Restocking,20,1.0,18.200000000000003,5.8272,0.6356,0.3192,0.6741,1.2295,0.2403,1.0678,0.0433,0.0019,0.1735,0.0,0.3252
+U_9d1826452c84,EgoStandard,L,retail_x_supermarket_0054,train,Shelf Stock-Out Slot Audit,0,0.0,3.4,1.6779,0.5346,0.4854,0.8815,1.3308,0.3252,2.091,0.0437,0.0027,0.1092,0.1165,0.5089
+U_433ebcde0af8,EgoStandard,L,retail_x_supermarket_0054,train,Shelf Stock-Out Slot Audit,1,0.25,3.6,2.2202,0.2786,0.6062,0.9463,1.2001,0.2814,2.0453,0.0402,0.0024,0.1273,0.0,0.6695
+U_a22d9f09b558,EgoStandard,L,retail_x_supermarket_0054,train,Shelf Stock-Out Slot Audit,2,0.5,3.4000000000000004,1.8863,0.1039,0.5503,0.9303,1.2501,0.3013,2.2692,0.0396,0.0037,0.1243,0.0,0.563
+U_b18c531a1323,EgoStandard,L,retail_x_supermarket_0054,train,Shelf Stock-Out Slot Audit,3,0.75,3.6,1.5369,0.2653,0.4176,0.8417,1.5551,0.3354,2.1426,0.0413,0.0024,0.1292,0.0,0.4112
+U_79bc7a400f60,EgoStandard,L,retail_x_supermarket_0054,train,Shelf Stock-Out Slot Audit,4,1.0,3.3999999999999986,0.9704,0.5656,0.2755,0.6371,0.8476,0.2429,1.4911,0.0394,0.0025,0.1339,0.0,0.289
+U_5cb7efc041c6,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,0,0.0,7.0,2.5753,1.0902,0.3659,0.6532,0.816,0.2175,0.9989,0.0387,0.0035,0.2436,0.0,0.3103
+U_242244c7d609,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,1,0.125,6.0,2.6314,0.7866,0.4374,0.7401,0.9186,0.2408,1.1804,0.0452,0.0033,0.2611,0.0,0.3351
+U_f5d64292c7c7,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,2,0.25,4.0,1.1523,0.0702,0.2884,0.6599,0.8219,0.2297,1.1875,0.0432,0.0029,0.2371,0.0,0.2333
+U_b1fd1216beda,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,3,0.375,7.0,2.9087,0.9669,0.413,0.6896,0.991,0.2252,1.2421,0.0403,0.0036,0.2809,0.0,0.3767
+U_d84014f7e6c5,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,4,0.5,4.0,1.2304,0.5923,0.3046,0.5247,0.6104,0.1496,1.221,0.044,0.0037,0.2583,0.0,0.3101
+U_fa121bbf7d53,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,5,0.625,5.0,1.469,0.2933,0.2871,0.559,0.7447,0.2009,1.5558,0.0383,0.003,0.1736,0.0,0.2165
+U_2232b46e3a72,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,6,0.75,5.0,1.3611,0.5011,0.271,0.6234,0.7763,0.2205,1.003,0.0434,0.0039,0.2466,0.0,0.3195
+U_22a119d866f8,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,7,0.875,7.0,2.7984,0.8723,0.4001,0.7462,0.9342,0.2428,1.1252,0.0437,0.0033,0.3608,0.0,0.3579
+U_ecea7f7daf0f,EgoStandard,L,retail_x_supermarket_0159,test,Snack Price Tag Verification,8,1.0,9.4,3.2557,0.7824,0.3425,0.6543,0.8628,0.2206,1.0242,0.04,0.0028,0.2262,0.0,0.3329
+U_9782af7276a5,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,0,0.0,2.8,1.7477,0.1444,0.6268,1.0706,1.5089,0.3445,2.1329,0.0401,0.0038,0.156,0.0,0.6488
+U_f4cccb8f9580,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,1,0.5,3.8,1.6865,0.1675,0.4426,0.8748,1.1719,0.3154,1.655,0.0435,0.0054,0.222,0.0,0.4056
+U_5d4199d8e302,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,2,1.0,1.4000000000000004,0.4274,0.3225,0.3054,0.8697,0.892,0.3216,0.751,0.0437,0.0039,0.3181,0.0,0.3513
+U_c8c0e9e22f5b,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,0,0.0,2.8,1.2571,0.1915,0.4448,0.7275,1.158,0.2533,1.5319,0.0387,0.0023,0.1216,0.0,0.4035
+U_dcc2ca1ca4a2,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,1,0.333,3.8,1.5172,0.3279,0.3971,0.79,0.9659,0.2645,1.3503,0.0427,0.0021,0.1537,0.0,0.4143
+U_b1069ffbfdde,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,2,0.667,3.6,1.2054,0.0419,0.3308,0.647,0.972,0.2336,1.5022,0.0447,0.0016,0.1548,0.0,0.3732
+U_2ff012dc955b,EgoStandard,P,retail_x_supermarket_0054,train,Snack Shelf Restocking,3,1.0,2.6000000000000014,0.8367,0.5594,0.3164,0.6065,0.6834,0.2225,0.9738,0.043,0.0022,0.1456,0.0,0.2922

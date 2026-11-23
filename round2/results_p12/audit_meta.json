@@ -1,0 +1,16 @@
+{
+  "n_records": 69,
+  "duplicate_uuids": 0,
+  "n_environments": 24,
+  "n_scenes": 30,
+  "n_operators": 41,
+  "records_per_environment_max": 18,
+  "split_counts": {
+    "train": 55,
+    "validation": 7,
+    "test": 7
+  },
+  "scene_operator_pairs": 49,
+  "total_frames": 66070,
+  "total_duration_s": 2206.3
+}
