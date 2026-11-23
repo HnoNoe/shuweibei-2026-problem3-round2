@@ -1,0 +1,407 @@
+{
+  "file": "C:\\Users\\Camevian\\Documents\\kimi\\Workspaces\\大学学习\\shuwei_c\\SWBMCM2611888_revised.docx",
+  "engine": "doc-k https://www.kimi.com/pages/dock/embed (final view)",
+  "browser": "C:\\Users\\Camevian\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe",
+  "pages": 27,
+  "rendered": 27,
+  "ms": 5208,
+  "nearBlankPages": [],
+  "fidelity": {
+    "verdict": "degraded",
+    "byCategory": {
+      "content-loss": 0,
+      "degraded": 668,
+      "interactivity-loss": 42,
+      "metadata-loss": 448,
+      "unknown": 8
+    },
+    "suppressed": [
+      {
+        "part": "word/endnotes.xml",
+        "count": 1,
+        "reason": "only separator notes (no real notes), nothing is lost"
+      }
+    ],
+    "findings": [
+      {
+        "category": "interactivity-loss",
+        "severity": "medium",
+        "part": "word/document.xml",
+        "element": "w:hyperlink",
+        "count": 41,
+        "note": "超链接文档内锚点（w:hyperlink/@anchor）不建模——仅外部 URL 保留"
+      },
+      {
+        "category": "degraded",
+        "severity": "medium",
+        "part": "word/document.xml",
+        "element": "w:pgMar",
+        "count": 2,
+        "note": "gutter 装订线不建模（非零时版心宽/位置偏移）"
+      },
+      {
+        "category": "degraded",
+        "severity": "medium",
+        "part": "word/theme/theme1.xml",
+        "element": "a:fillStyleLst",
+        "count": 1,
+        "note": "主题填充样式表（a:fillStyleLst）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "medium",
+        "part": "word/theme/theme1.xml",
+        "element": "a:effectStyleLst",
+        "count": 1,
+        "note": "主题效果样式表（a:effectStyleLst）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "medium",
+        "part": "word/theme/theme1.xml",
+        "element": "a:bgFillStyleLst",
+        "count": 1,
+        "note": "主题背景填充样式表（a:bgFillStyleLst）不建模"
+      },
+      {
+        "category": "interactivity-loss",
+        "severity": "medium",
+        "part": "word/settings.xml",
+        "element": "w:documentProtection",
+        "count": 1,
+        "note": "文档保护（只读/窗体锁定/密码）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "medium",
+        "part": "word/settings.xml",
+        "element": "w:doNotWrapTextWithPunct",
+        "count": 1,
+        "note": "标点换行规则关闭（w:doNotWrapTextWithPunct）不建模——影响断行"
+      },
+      {
+        "category": "degraded",
+        "severity": "medium",
+        "part": "word/settings.xml",
+        "element": "w:doNotUseEastAsianBreakRules",
+        "count": 1,
+        "note": "东亚断行规则关闭（w:doNotUseEastAsianBreakRules）不建模——影响 kinsoku 断行"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:rFonts",
+        "count": 141,
+        "note": "rFonts/@hint（东亚字体提示）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:bottom",
+        "count": 81,
+        "note": "边框间距（@space）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:tblPrEx",
+        "count": 79,
+        "note": "表格行属性例外（w:tblPrEx）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:shd",
+        "count": 34,
+        "note": "底纹图案（w:shd/@val）不建模（仅 fill 烧值）"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:shd",
+        "count": 30,
+        "note": "底纹图案色（w:shd/@color）不建模（同上）"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:top",
+        "count": 20,
+        "note": "边框间距（@space）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:iCs",
+        "count": 19,
+        "note": "复杂脚本斜体（w:iCs）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:caps",
+        "count": 19,
+        "note": "全大写（w:caps）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:shd",
+        "count": 15,
+        "note": "底纹（numbering lvl rPr 等未消费上下文）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:left",
+        "count": 14,
+        "note": "边框间距（@space）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:right",
+        "count": 14,
+        "note": "边框间距（@space）不建模"
+      },
+      {
+        "category": "degraded",
+        "severity": "low",
+        "part": "word/document.xml",
+        "element": "w:insideH",
+        "count": 14,
+        "note": "边框间距（@space）不建模"
+      }
+    ]
+  },
+  "contactSheet": "contact-sheet.png",
+  "pageFiles": [
+    {
+      "page": 1,
+      "file": "page-01.png",
+      "textChars": 1573,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 2,
+      "file": "page-02.png",
+      "textChars": 1037,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 3,
+      "file": "page-03.png",
+      "textChars": 1751,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 4,
+      "file": "page-04.png",
+      "textChars": 678,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 5,
+      "file": "page-05.png",
+      "textChars": 1438,
+      "media": 3,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 6,
+      "file": "page-06.png",
+      "textChars": 1507,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 7,
+      "file": "page-07.png",
+      "textChars": 2167,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 8,
+      "file": "page-08.png",
+      "textChars": 2130,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 9,
+      "file": "page-09.png",
+      "textChars": 1659,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 10,
+      "file": "page-10.png",
+      "textChars": 1265,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 11,
+      "file": "page-11.png",
+      "textChars": 1249,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 12,
+      "file": "page-12.png",
+      "textChars": 1593,
+      "media": 3,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 13,
+      "file": "page-13.png",
+      "textChars": 1684,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 14,
+      "file": "page-14.png",
+      "textChars": 885,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 15,
+      "file": "page-15.png",
+      "textChars": 1155,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 16,
+      "file": "page-16.png",
+      "textChars": 816,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 17,
+      "file": "page-17.png",
+      "textChars": 1061,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 18,
+      "file": "page-18.png",
+      "textChars": 863,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 19,
+      "file": "page-19.png",
+      "textChars": 1015,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 20,
+      "file": "page-20.png",
+      "textChars": 1403,
+      "media": 2,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 21,
+      "file": "page-21.png",
+      "textChars": 1684,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 22,
+      "file": "page-22.png",
+      "textChars": 2360,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 23,
+      "file": "page-23.png",
+      "textChars": 1299,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 24,
+      "file": "page-24.png",
+      "textChars": 2700,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 25,
+      "file": "page-25.png",
+      "textChars": 1224,
+      "media": 1,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 26,
+      "file": "page-26.png",
+      "textChars": 1390,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    },
+    {
+      "page": 27,
+      "file": "page-27.png",
+      "textChars": 47,
+      "media": 0,
+      "nearBlank": false,
+      "clipped": false
+    }
+  ]
+}
