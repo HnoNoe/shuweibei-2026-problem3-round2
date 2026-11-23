@@ -336,8 +336,8 @@ def insert_p1_p2(doc):
         "windows overlapping natural bad frames are excluded from scoring. "
         "We report error, accumulated observation cost and waiting time "
         "for every method, as the problem statement requires, and we do "
-        "not interpret artificial masking as natural occlusion (the two "
-        "are compared explicitly in the sensitivity discussion).")
+        "not interpret artificial masking as natural occlusion — Section "
+        "4.3 compares the two directly on the records.")
     insert_para_before(h3, "4.2 Prediction: baselines and the family-ridge "
                            "upgrade", "Heading 2")
     insert_para_before(
@@ -399,6 +399,27 @@ def insert_p1_p2(doc):
         "Table 3. Masking-replay prediction audit (1,380 masked windows; "
         "ridge fitted on training records only, evaluation on the 280 "
         "validation/test windows).")
+    insert_para_before(
+        h3,
+        "Natural occlusion does occur in the records, and it behaves "
+        "differently from a masked window. The quality flags contain 136 "
+        "runs of consecutive bad frames across the 69 records (median "
+        "0.13 s, 90th percentile 0.48 s, maximum 1.9 s), and they "
+        "concentrate in EgoPro (5.0 runs per record, versus 2.0 in "
+        "EgoStandard and 0.55 in EgoDemo). Their timing is stage-uniform "
+        "— one third of runs fall in each third of a record — whereas "
+        "our masking windows are drawn uniformly at random by design: "
+        "natural occlusion is a property of the acquisition setup, not "
+        "of the operational stage. Comparing like with like, the "
+        "representative-point displacement across a naturally occluded "
+        "run (median 3.8 cm for runs up to 0.2 s, 9.7 cm for 0.2–0.5 s "
+        "runs) sits inside the band of artificial-masking prediction "
+        "error at the same horizon (5.5–9.6 cm at Δ = 0.25 s), which is "
+        "why the replay conclusions transfer to the flagged intervals. "
+        "Two constraints from the problem statement are respected "
+        "throughout: no true-position error is computed inside "
+        "low-quality runs without an independent reference, and only "
+        "the bracketing good frames enter any estimate.")
     insert_para_before(h3, "4.4 When to re-observe: fixed schedules versus "
                            "uncertainty thresholds", "Heading 2")
     insert_para_before(
