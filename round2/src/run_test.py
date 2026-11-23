@@ -1,9 +1,3 @@
-"""第 8 步 · 之一：测试集终验。
-
-口径：test split 源池（record_split 的 test 组），30 个全新种子 × 5 映射 × 3 案例，
-臂 = C6_full / B3_WSPT_Q90 / RM_buytop（主对比 + 买到顶反证的 test 复现）。
-超参读 q7_tuning.json 冻结值。输出 q8_test.csv + q8_test_summary.json。
-"""
 
 import csv
 import json
@@ -18,11 +12,9 @@ from review_max import ReviewMaxPolicy
 from sampler import SourceSampler, run_trial
 from strategy import TwoStagePolicy, baseline
 
-TEST_SEEDS = list(range(990001, 990031))     # 全新种子，与调参/验证无交
-# 主策略报 C5_online（验证集上 C5 > C6，见消融报告）；C6 同跑留档，
-# B3 为最强朴素对手，RM 为零审查反证。
-ARMS = ["C5_online", "C6_full", "B3_WSPT_Q90", "RM_buytop"]
+TEST_SEEDS = list(range(990001, 990031))
 
+ARMS = ["C5_online", "C6_full", "B3_WSPT_Q90", "RM_buytop"]
 
 def main():
     frozen = json.load(open(ROOT / "round2/results/q7_tuning.json",
@@ -46,7 +38,7 @@ def main():
                     tr = run_trial(case, seed, alpha, beta, sampler, pol, "test")
                     m = tr.metrics()
                     rows.append(dict(arm=arm, **m))
-                    # metrics() 已含 case/seed/alpha/beta，显式传会撞键
+
                 if len(rows) % 90 == 0:
                     print(f"{len(rows)//(len(ARMS)*3)}/450 trials "
                           f"{time.time()-t0:.0f}s", flush=True)
@@ -78,7 +70,6 @@ def main():
     with open(RESULTS / "q8_test_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
-
 
 if __name__ == "__main__":
     main()

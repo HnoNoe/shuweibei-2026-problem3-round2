@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-"""第 9 步 · 之二：改稿——SWBMCM 论文一体化升级。
-
-叙事主线：原版本（baseline pipeline）保留为对照，新增 5.6 节逐项审计升级
-（CRN 配对的基线 vs 精炼对比 + 6 张图），第 7 章加 baseline–refined 对比表，
-结论补 refined 结果，参考文献规范化扩充。
-
-用法：python3 revise_paper.py <in.docx> <out.docx>
-"""
 
 import copy
 import os
@@ -20,7 +12,6 @@ from docx.shared import Inches, Pt
 
 FIGDIR = r"C:/Users/Camevian/Documents/Kimi/Workspaces/大学学习/shuwei_c/round2/figures3"
 
-
 def find_par(doc, text, style_prefix=None):
     for p in doc.paragraphs:
         t = p.text.strip()
@@ -29,7 +20,6 @@ def find_par(doc, text, style_prefix=None):
             return p
     raise ValueError(f"anchor not found: {text}")
 
-
 def insert_para_before(anchor, text, style="Normal", bold=False):
     p = anchor.insert_paragraph_before(text, style=style)
     if bold:
@@ -37,9 +27,8 @@ def insert_para_before(anchor, text, style="Normal", bold=False):
             r.bold = True
     return p
 
-
 def insert_figure_before(anchor, doc, png, caption, width_in=6.0):
-    """在 anchor 前插入居中图片段 + caption 段，返回图片段。"""
+
     pic = doc.add_paragraph()
     pic.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run = pic.add_run()
@@ -48,12 +37,10 @@ def insert_figure_before(anchor, doc, png, caption, width_in=6.0):
     cap = insert_para_before(anchor, caption, style="Caption")
     return pic, cap
 
-
 def main():
     src, out = sys.argv[1], sys.argv[2]
     doc = Document(src)
 
-    # ============ 1. 新增 5.6 节（插在 6. Sensitivity Analysis 之前） ============
     h6 = find_par(doc, "6. Sensitivity Analysis", "Heading 1")
 
     insert_para_before(h6, "5.6 From the Baseline Pipeline to the Refined Pipeline", "Heading 2")
@@ -183,7 +170,6 @@ def main():
         "(Figure 17), and every nominal case clears the 0.50 benchmark by a "
         "wide margin (0.983/0.856/0.809 by case on validation).")
 
-    # ============ 2. 第 7 章加对比表（插在 8. Conclusion 之前） ============
     h8 = find_par(doc, "8. Conclusion", "Heading 1")
     insert_para_before(h8, "7.1 Baseline–refined Comparison", "Heading 2")
     insert_para_before(
@@ -219,14 +205,13 @@ def main():
     for i, r in enumerate(rows, start=1):
         for j, c in enumerate(r):
             tbl.rows[i].cells[j].text = c
-    # 表格移到 h8 前
+
     h8._p.addprevious(tbl._tbl)
     cap = insert_para_before(h8, "Table 13. Baseline–refined comparison along "
                                  "the four audited axes.", style="Caption")
-    # 表题应在表上方：把 caption 段移到表格前
+
     tbl._tbl.addprevious(cap._p)
 
-    # ============ 3. Conclusion 补一段 ============
     p_ref = find_par(doc, "References", "Heading 1")
     insert_para_before(
         p_ref,
@@ -239,7 +224,6 @@ def main():
         "ledger, falsification arms and optimality bounds — is portable to "
         "any stochastic dispatch problem built on replayed demonstrations.")
 
-    # ============ 4. References 规范化扩充 ============
     new_refs = [
         "[4] Kleywegt A J, Shapiro A, Homem-de-Mello T. The sample average "
         "approximation method for stochastic discrete optimization. SIAM "
@@ -270,12 +254,8 @@ def main():
     post_fix(out)
     print(f"REVISED -> {out}")
 
-
 def post_fix(path):
-    """三处 zip 手术，均为 OOXML 合规修复：
-    1) settings.xml 移除不合序的 w:uiCompat97To2003（原稿自带，Word 校验报错）；
-    2) styles.xml 把 21 个 style 里排在 qFormat 之后的 w:uiPriority 前移到合法位置；
-    3) Table 13 宽固化 9544 dxa、三列 3253/3253/3254（防 autofit 溢出页宽）。"""
+
     tmp = path + ".tmp"
     followers = ('<w:semiHidden', '<w:unhideWhenUsed', '<w:qFormat', '<w:locked',
                  '<w:personal ', '<w:personalCompose', '<w:personalReply',
@@ -312,7 +292,7 @@ def post_fix(path):
                     data = s.encode("utf-8")
                 elif n == "word/document.xml":
                     s = data.decode("utf-8")
-                    # 用 Table 13 表题反查它前面的那个 tbl，不受其后表格影响
+
                     cap = s.find("Baseline–refined comparison along")
                     i = s.rfind("<w:tbl>", 0, cap)
                     assert i != -1, "Table 13 tbl not found"
@@ -328,7 +308,6 @@ def post_fix(path):
                     data = s.encode("utf-8")
                 zout.writestr(n, data)
     os.replace(tmp, path)
-
 
 if __name__ == "__main__":
     main()

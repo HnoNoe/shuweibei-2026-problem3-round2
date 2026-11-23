@@ -1,9 +1,3 @@
-"""第 7 步 · 之四：配对差分分析 + SAA 正式间隙 + 消融报告。
-
-主终点（预先登记）：weighted_on_time_rate，主对比 C6_full vs B3_WSPT_Q90。
-全部差分为 trial 级配对（CRN 同步），CI 用 t 分布。
-输出：q7_ablation_summary.json、q7_saa_gap.json、docs/ablation_report.md。
-"""
 
 import json
 import sys
@@ -18,7 +12,7 @@ from duration_model3 import DurationModel
 import saa_gap
 
 PRIMARY_METRIC = "weighted_on_time_rate"
-PAIRS = [  # (label, arm_a, arm_b) —— 报告顺序即归因链顺序
+PAIRS = [
     ("B2-B1 规则升级", "B2_WSPT_MEAN", "B1_EDD"),
     ("B2b-B2 中位数vs均值点估计", "B2b_WSPT_MEDIAN", "B2_WSPT_MEAN"),
     ("B3-B2 稳健点估计", "B3_WSPT_Q90", "B2_WSPT_MEAN"),
@@ -32,7 +26,6 @@ PAIRS = [  # (label, arm_a, arm_b) —— 报告顺序即归因链顺序
     ("C6-B2 全栈vs标准解", "C6_full", "B2_WSPT_MEAN"),
     ("RM-C5 买到顶反证", "RM_buytop", "C5_online"),
 ]
-
 
 def paired(df, a, b, metric=PRIMARY_METRIC):
     da = df[df.arm == a].set_index(["alpha", "beta", "case", "seed"])[metric]
@@ -48,7 +41,6 @@ def paired(df, a, b, metric=PRIMARY_METRIC):
         ci = 0.0
     return dict(n=n, mean_diff=mean, ci95_halfwidth=abs(ci),
                 median_diff=float(d.median()))
-
 
 def _run_saa():
     model = DurationModel.from_gofit()
@@ -77,18 +69,15 @@ def _run_saa():
               f"{saa_rows[case]['wall_s']:.0f}s", flush=True)
     return saa_rows
 
-
 def main():
     t0 = time.time()
     df = pd.read_csv(RESULTS / "q7_ablation.csv")
     df.columns = [c.strip("\ufeff") for c in df.columns]
 
-    # ---- 验收门槛 ----
     bad_protocol = int((df["valid_protocol"] != 1).sum())
     assert bad_protocol == 0, f"协议不合规 {bad_protocol} 局，返工不解释"
     assert len(df) == 12 * 450, f"行数 {len(df)} != 5400"
 
-    # ---- 主对比与归因链 ----
     pairs = []
     for label, a, b in PAIRS:
         r = paired(df, a, b)
@@ -101,7 +90,6 @@ def main():
     assert primary["ci95_halfwidth"] < 0.03, \
         f"主对比 CI 宽 {primary['ci95_halfwidth']:.4f} ≥ 0.03，功效门槛未达"
 
-    # ---- 分解视角 ----
     breakdown = {}
     for view in ("case", "mapping"):
         rows = {}
@@ -113,7 +101,6 @@ def main():
                 pass
         breakdown[view] = rows
 
-    # ---- 次级指标：费用与完成率（C6 vs B3 vs RM）----
     second = {}
     for arm in ("C6_full", "B3_WSPT_Q90", "RM_buytop", "C5_online"):
         sub = df[df.arm == arm]
@@ -123,7 +110,6 @@ def main():
             reviews_mean=float(sub["observations"].mean()),
             censored_mean=float(sub["censored_units"].mean()))
 
-    # ---- RM 反证判定 ----
     rm_pair = [p for p in pairs if p["label"].startswith("RM-C5")][0]
     rm_verdict = ("RM 未显著优于 C5（CI 含 0 或为负）→ 零审查结论封死"
                   if rm_pair["mean_diff"] - rm_pair["ci95_halfwidth"] <= 0
@@ -141,7 +127,6 @@ def main():
     with open(RESULTS / "q7_ablation_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
-    # ---- SAA 正式间隙 ----
     skip_saa = "--skip-saa" in sys.argv
     saa_path = RESULTS / "q7_saa_gap.json"
     if skip_saa and saa_path.exists():
@@ -152,7 +137,6 @@ def main():
     with open(saa_path, "w", encoding="utf-8") as f:
         json.dump(saa_rows, f, ensure_ascii=False, indent=2)
 
-    # ---- 消融报告 ----
     md = ["# 第 7 步消融报告（validation 集，450 局/臂，CRN 配对）\n",
           f"主终点：{PRIMARY_METRIC}；主对比 C6_full vs B3_WSPT_Q90；"
           f"超参冻结 {summary['frozen']}（train 内部种子选定）\n",
@@ -181,7 +165,6 @@ def main():
     with open(ROOT / "round2/docs/ablation_report.md", "w", encoding="utf-8") as f:
         f.write("\n".join(md))
     print(f"ALL DONE in {time.time()-t0:.0f}s")
-
 
 if __name__ == "__main__":
     main()

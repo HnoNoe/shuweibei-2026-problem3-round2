@@ -1,10 +1,3 @@
-"""第 8 步 · 补丁：test 集只补跑 C5_online 与 RM_buytop 两臂并合并 summary。
-
-背景（2026-11-23）：run_test.py 曾把 C5_online 误映射为 ReviewMaxPolicy，
-旧 q8_test.csv 里 C6_full / B3_WSPT_Q90 两行真实有效（映射正确），
-"C5_online"/"RM_buytop" 两行实为失效版 RM，作废。
-本脚本重跑 C5（真）+ RM（GBM 修复+缓存版）两臂，替换旧行后重算配对 summary。
-"""
 
 import json
 import time
@@ -21,7 +14,6 @@ from strategy import TwoStagePolicy
 
 TEST_SEEDS = list(range(990001, 990031))
 ARMS_FIX = ["C5_online", "RM_buytop"]
-
 
 def main():
     frozen = json.load(open(ROOT / "round2/results/q7_tuning.json",
@@ -79,7 +71,6 @@ def main():
     with open(RESULTS / "q8_test_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
-
 
 if __name__ == "__main__":
     main()

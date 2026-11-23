@@ -1,11 +1,3 @@
-"""第 8 步 · 补丁：重跑 RM_buytop 臂（validation）。
-
-背景（2026-11-23）：review_max.py 的 GBM 特征键不匹配（训练列带 "p10_" 前缀、
-快照特征键已剥离）导致 _gbm_d 恒返回 None —— "买到顶"反证的**信息通道从未生效**，
-旧 q7_ablation.csv 的 RM 行是失效版结果。本脚本只重跑 RM 单臂
-（5 映射 × 3 案例 × 30 验证种子 = 450 局，CRN 种子与 run_ablation 完全一致），
-输出 q7_ablation_rm_fixed.csv；由 merge_rm_fix.py 替换进主表后再跑 analyze。
-"""
 
 import csv
 import json
@@ -15,7 +7,6 @@ from common import MAPPINGS, ROOT, VAL_SEEDS
 from duration_model3 import DurationModel
 from review_max import ReviewMaxPolicy
 from sampler import SourceSampler, run_trial
-
 
 def main():
     frozen = json.load(open(ROOT / "round2/results/q7_tuning.json",
@@ -54,7 +45,6 @@ def main():
                         print(f"{n}/450, {time.time()-t0:.0f}s", flush=True)
                         f.flush()
     print(f"DONE {n} trials in {time.time()-t0:.0f}s -> {out}")
-
 
 if __name__ == "__main__":
     main()

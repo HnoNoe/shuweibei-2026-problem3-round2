@@ -1,23 +1,9 @@
-"""Trial 仿真器（重建版）：严格执行 Problem 3 Requirements 第 2、3、4 节的动作协议。
 
-核心设计决策（与方案板对应）：
-1. 信息合规内建于接口 —— 策略只能通过 snapshot() 获取公开信息；
-   时长真值 d 仅存于仿真器内部，任何路径都递不出去（原文第 2 节防作弊条款）。
-2. 违规语义严格按原文 —— 违规一次：记 invalid、trial 终止、已消耗资源不退、
-   结果照常上报（"Retain resources already consumed, record a violation
-   and terminate the trial. Keep violating trials in the reported results."）。
-3. 截断语义 —— C > H：作业未完成、不计完成权重、但留在指标分母；
-   overrun 只计到 H；设备占用跳到 H 且 trial 终止（原文第 3、4 节）。
-4. 硬性检查 s + b <= H 只用 b，绝不用未释放的 p
-   （原文："Do not use unrevealed p in this check."）。
-5. 过程日志按第 5 节字段记录，执行动作附源引用供赛后核查。
-"""
 import math
 from common import (ZONES, FEE_FIXED, FEE_RESERVE_PER_S, FEE_DIST_PER_UNIT,
                     CHANGEOVER, REVIEW_COST, REVIEW_OCCUPY, REVIEW_DELAY,
                     REVIEW_MAX_PER_JOB, PREFIXES, B_MIN, MAX_ACTIONS,
                     zone_dist)
-
 
 class Job:
     __slots__ = ("job_id", "family", "release_s", "due_s", "weight", "zone",
@@ -32,10 +18,9 @@ class Job:
         self.weight = weight
         self.zone = zone
         self.predecessors = list(predecessors)
-        self.d = d                    # 真值：仅仿真器内部使用，策略不可见
-        self.source_ref = source_ref  # 执行后写入日志（赛后核查）
+        self.d = d
+        self.source_ref = source_ref
         self.prefix_feat = prefix_feat or {lvl: None for lvl in PREFIXES}
-
 
 class Trial:
     def __init__(self, jobs, H, B, K, alpha, beta, seed, case):
@@ -44,7 +29,7 @@ class Trial:
         self.H, self.B, self.K = H, B, K
         self.alpha, self.beta = alpha, beta
         self.seed, self.case = seed, case
-        # 状态
+
         self.t = 0.0
         self.zone = "Z0"
         self.cost = 0.0
@@ -58,10 +43,9 @@ class Trial:
         self.violations = 0
         self.terminated = False
         self.stopped = False
-        self._rows = []   # 执行记录（内部）
+        self._rows = []
         self.log = []
 
-    # ---- 策略可见的公开信息 ----
     def snapshot(self):
         return dict(t=self.t, zone=self.zone, cost=self.cost,
                     reviews=self.reviews, H=self.H, B=self.B, K=self.K,
@@ -77,13 +61,12 @@ class Trial:
                     completion_time=dict(self.completion_time),
                     prefix_level=dict(self.prefix_level),
                     review_count=dict(self.review_count),
-                    # 信息合规：只暴露当前已释放前缀级别的特征
+
                     prefix_feat={j: {lvl: f for lvl, f in
                                      self.jobs[j].prefix_feat.items()
                                      if f is not None and lvl <= self.prefix_level[j]}
                                  for j in self.order})
 
-    # ---- 内部判定 ----
     def _released(self, jid):
         return self.t >= self.jobs[jid].release_s - 1e-9
 
@@ -104,7 +87,6 @@ class Trial:
         self.n_actions += 1
         return self.n_actions <= MAX_ACTIONS
 
-    # ---- 动作 ----
     def execute(self, jid, b):
         if self.terminated:
             return False, "terminated"
@@ -184,7 +166,7 @@ class Trial:
         self.cost += REVIEW_COST
         self.reviews += 1
         self.review_count[jid] += 1
-        self.t = ret                      # 审查占用设备 1 秒
+        self.t = ret
         self.prefix_level[jid] = new
         self.log.append(dict(time=ret - REVIEW_OCCUPY, action="review", job=jid,
                              info_level=old, info_after=new, return_time=ret,
@@ -213,7 +195,6 @@ class Trial:
                              zone=self.zone))
         return True, "ok"
 
-    # ---- 指标（赛题第 4 节定义）----
     def metrics(self):
         W = sum(self.jobs[j].weight for j in self.order)
         wc = wt = tard = 0.0

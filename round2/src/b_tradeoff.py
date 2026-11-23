@@ -1,10 +1,3 @@
-"""第 8 步 · 之二：b 权衡扫描（b_dominance.md §5 承诺的量化对照）。
-
-b ∈ {0.2, 0.5, 1.0, 2.0}，其余决策与 C6 完全一致（决策仍按 b=0.2 的合法性
-世界做，仅在发出 execute 时改预留值，且须过 s+b≤H 与预算两道真实检查，
-过不了就退回 0.2）。名义映射 × 3 案例 × 30 验证种子。
-预期（解析结论）：准时率/overrun 不变，费用单调上升 —— 曲线画出来给论文。
-"""
 
 import json
 import time
@@ -21,9 +14,7 @@ from strategy import EPS, TwoStagePolicy
 
 B_VALUES = [0.2, 0.5, 1.0, 2.0]
 
-
 class BScanPolicy:
-    """C6 包装：execute 时把预留改成 b_scan（受真实合法性约束）。"""
 
     def __init__(self, b_scan, hyper, model):
         self.inner = TwoStagePolicy("C6_full", hyper=hyper, model=model)
@@ -43,8 +34,7 @@ class BScanPolicy:
         fee = FEE_FIXED + FEE_RESERVE_PER_S * self.b + FEE_DIST_PER_UNIT * D
         if s + self.b <= snap["H"] + EPS and snap["cost"] + fee <= snap["B"] + EPS:
             return ("execute", jid, self.b)
-        return act                           # 过不了真实检查就退回 0.2
-
+        return act
 
 def main():
     frozen = json.load(open(ROOT / "round2/results/q7_tuning.json",
@@ -59,7 +49,7 @@ def main():
                 pol = BScanPolicy(b, frozen, model)
                 tr = run_trial(case, seed, 1.0, 0.5, sampler, pol, "validation")
                 m = tr.metrics()
-                rows.append(dict(b=b, **m))   # metrics 已含 case/seed
+                rows.append(dict(b=b, **m))
         print(f"b={b} done {time.time()-t0:.0f}s", flush=True)
     df = pd.DataFrame(rows)
     bad = int((df["valid_protocol"] != 1).sum())
@@ -74,7 +64,6 @@ def main():
     agg.to_csv(RESULTS / "q8_btradeoff_summary.csv", index=False,
                encoding="utf-8-sig")
     print(agg.to_string(index=False))
-
 
 if __name__ == "__main__":
     main()

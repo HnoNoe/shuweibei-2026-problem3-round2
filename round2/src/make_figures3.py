@@ -1,17 +1,3 @@
-"""第 9 步 · 之一：基线 vs 精炼版对比图（顶刊风格 + 3D 主图）。
-
-叙事主线：同一批 450 个 validation trial 实例（CRN 同步），round1 基线管线 vs
-round2 精炼管线逐项升级对比。图全英文标注（论文为英文）。
-
-图A（3D 主图）：分案例 × 分映射的配对增益曲面柱（C5_refined − A_baseline）
-图B（瀑布）：从确定性打分到两阶段随机调度的消融台账（每步配对增益 + 95% CI）
-图C（信息层证伪）：R² 证据 + 审查开销对比（baseline 买审查 vs refined 零审查）
-图D（截断处理）：朴素丢弃（baseline）vs EM 含删失的参数偏差
-图E（最优性证书）：SAA 下界/上界 + 策略取值
-图F（泛化）：validation 与 test 两组的主对比增益（配对）
-
-输出 figures3/fig{A..F}_*.png + figures3/fig3_captions.json
-"""
 
 import json
 import math
@@ -22,10 +8,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib import rcParams
-from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
+from mpl_toolkits.mplot3d import Axes3D
 
 rcParams.update({
-    # Nature 风：Arial、刻度朝外、spines 顶部/右侧隐藏
+
     "font.family": "sans-serif",
     "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
     "font.size": 9,
@@ -49,7 +35,6 @@ rcParams.update({
     "savefig.pad_inches": 0.05,
 })
 
-# Nature 风 muted 色板（from "A quick introduction to matplotlib", OLHOS grid)
 PALETTE = ["#4878CF", "#6ACC64", "#D65F5F", "#B47CC7", "#C4AD66", "#77BEDB"]
 
 from common import RESULTS, ROOT
@@ -59,14 +44,13 @@ FIGDIR = ROOT / "round2/figures3"
 FIGDIR.mkdir(exist_ok=True)
 captions = {}
 
-C_BASE = PALETTE[2]   # baseline — muted red #D65F5F
-C_REF = PALETTE[0]    # refined — muted blue #4878CF
-C_ACC = PALETTE[1]    # 正增益 — muted green #6ACC64
+C_BASE = PALETTE[2]
+C_REF = PALETTE[0]
+C_ACC = PALETTE[1]
 C_GREY = "#8C8C8C"
-C_AMBER = PALETTE[4]  # reviews — #C4AD66
+C_AMBER = PALETTE[4]
 
 R1_CSV = ROOT / "archive_round1/baseline_results/comparison_validation.csv"
-
 
 def load_r1():
     df = pd.read_csv(R1_CSV)
@@ -75,15 +59,13 @@ def load_r1():
     df["beta_v"] = df["beta"].astype(float)
     return df
 
-
 def load_r2():
     df = pd.read_csv(RESULTS / "q7_ablation.csv")
     df.columns = [c.strip("\ufeff") for c in df.columns]
     return df
 
-
 def paired_by(r1, r2, arm_r2, arm_r1="A_准时导向", metric="weighted_on_time_rate"):
-    """同一 (case, seed, alpha, beta) 上的 trial 级配对差（r2 − r1）。"""
+
     a = r1[r1.strategy == arm_r1].set_index(
         ["case", "seed", "alpha_v", "beta_v"])[metric]
     b = r2[r2.arm == arm_r2].set_index(
@@ -91,7 +73,6 @@ def paired_by(r1, r2, arm_r2, arm_r1="A_准时导向", metric="weighted_on_time_
     b.index.names = ["case", "seed", "alpha_v", "beta_v"]
     common = a.index.intersection(b.index)
     return (b.loc[common] - a.loc[common]).dropna()
-
 
 def mean_ci(d):
     m = float(d.mean())
@@ -102,8 +83,6 @@ def mean_ci(d):
         hw = 0.0
     return m, hw
 
-
-# ---------- 图A：3D 配对增益曲面柱 ----------
 def figA_gain3d(r1, r2):
     d = paired_by(r1, r2, "C5_online")
     cases = ["S1", "S2", "S3"]
@@ -145,8 +124,6 @@ def figA_gain3d(r1, r2):
         "trials; 30 seeds per cell). Gains are uniformly non-negative and are "
         "largest in the S2/S3 hard cases.")
 
-
-# ---------- 图B：升级瀑布 ----------
 def figB_waterfall(r2):
     s = json.load(open(RESULTS / "q7_ablation_summary.json", encoding="utf-8"))
     order = ["B2-B1 规则升级", "B2b-B2 中位数vs均值点估计", "B3-B2 稳健点估计",
@@ -166,7 +143,7 @@ def figB_waterfall(r2):
 
     fig, ax = plt.subplots(figsize=(7.4, 4.0))
     x = np.arange(len(vals) + 1)
-    # 9 根柱：第 0 根是基线（高 0），第 i 根底部 = 之前所有升级的累计增益
+
     base = [0, 0] + list(np.cumsum(vals[:-1]))
     colors = [C_BASE] + [C_ACC if v >= 0 else C_BASE for v in vals]
     ax.bar(x, [0] + vals, bottom=base, color=colors, width=0.62,
@@ -192,14 +169,11 @@ def figB_waterfall(r2):
         "contrast on the same 450 validation trials (common random numbers); "
         "bars show the incremental gain with 95% CI.")
 
-
-# ---------- 图C：信息层证伪 ----------
 def figC_information(r1, r2):
     r2q = pd.read_csv(RESULTS / "q2_predictability.csv")
     r2q.columns = [c.strip("\ufeff") for c in r2q.columns]
     fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.9))
 
-    # (i) R²：前缀预测全负
     ax = axes[0]
     piv = r2q.pivot(index="model", columns="window", values="R2")
     order = ["family均值基线", "岭回归", "梯度提升树"]
@@ -216,8 +190,6 @@ def figC_information(r1, r2):
     ax.set_title("Prefix features carry no\npredictable duration signal")
     ax.legend(fontsize=6.5, frameon=False)
 
-    # (ii) 被证伪路线的代价：baseline 4.3 路线（前缀预测+审查）由买满反证臂实现，
-    # 对比 refined 零审查：花更多钱，准时率反而更低
     ax = axes[1]
     sec = json.load(open(RESULTS / "q7_ablation_summary.json",
                          encoding="utf-8"))["secondary"]
@@ -235,7 +207,7 @@ def figC_information(r1, r2):
             color=C_AMBER)
     ax2.bar(xx[1] + 0.18, sec["C5_online"]["reviews_mean"], 0.34,
             color=C_GREY)
-    # 直接标注柱（替代图例）：cost 在左柱顶，reviews 在右柱顶
+
     ax.text(xx[0] - 0.18, sec["RM_buytop"]["cost_mean"] + 0.6, "cost",
             ha="center", fontsize=6.5, color=C_BASE, fontweight="bold")
     ax.text(xx[1] - 0.18, sec["C5_online"]["cost_mean"] + 0.6, "cost",
@@ -251,7 +223,6 @@ def figC_information(r1, r2):
     ax.set_title(f"Falsified route: +{cost_d:.2f} cost,\n"
                  f"and still loses ({rm_pair['mean_diff']:+.4f} paired)")
 
-    # (iii) 反证：买满也赢不了
     ax = axes[2]
     s = json.load(open(RESULTS / "q7_ablation_summary.json", encoding="utf-8"))
     rm = [p for p in s["pairs"] if p["label"].startswith("RM-C5")][0]
@@ -282,8 +253,6 @@ def figC_information(r1, r2):
         "adversarial variant that buys the maximum allowed reviews still loses "
         "to zero-review, closing the question.")
 
-
-# ---------- 图D：截断处理 ----------
 def figD_censoring():
     p = RESULTS / "censor_study.csv"
     if not p.exists():
@@ -323,8 +292,6 @@ def figD_censoring():
         "censoring-aware update brings the bias to ≈0, protecting every "
         "downstream scheduling decision.")
 
-
-# ---------- 图E：SAA 证书 ----------
 def figE_saa():
     p = RESULTS / "q7_saa_gap.json"
     if not p.exists():
@@ -358,8 +325,6 @@ def figE_saa():
         "interval, so the relative optimality gap is reported as zero (local "
         "search bound for S2/S3, flagged with a caveat).")
 
-
-# ---------- 图F：泛化（validation vs test） ----------
 def figF_generalization(r1):
     sv = json.load(open(RESULTS / "q7_ablation_summary.json", encoding="utf-8"))
     st = json.load(open(RESULTS / "q8_test_summary.json", encoding="utf-8"))
@@ -389,7 +354,6 @@ def figF_generalization(r1):
         "variant) on validation seeds and on independent test seeds. The gain "
         "replicates out-of-sample, confirming that it reflects model design "
         "rather than seed luck.")
-
 
 if __name__ == "__main__":
     r1 = load_r1()

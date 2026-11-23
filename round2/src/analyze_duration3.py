@@ -1,16 +1,4 @@
-"""数据诊断（第 4 步）：Q1 分布形态 + 拟合优度 / 截断对照实验 / Q2 前缀可预测性。
 
-文献锚点：
-- Strum et al. 2000（手术时长拟合对数正态，被引 182）、2017 Weibull 任务时长
-  -> Q1 不止看形状，正式做 lognormal vs Weibull 的 AIC 对比
-- Fleming 2013（生存分析经典）、Machine Learning for Survival Analysis 2019
-  -> 截断对照：朴素丢弃 vs 含删失 MLE，量化偏差
-- Early Prediction on Time Series 2009 / 2020 综述（被引 190/202）
-  -> Q2 本质是"早期时间序列预测"：前缀够不够早、够不够准
-
-纪律：全部统计只在 train split 上做；按 environment_id 分组 CV 防泄漏
-（同一操作者跨环境出现，随机折会泄漏，见原文第 2 节）。
-"""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
@@ -22,14 +10,11 @@ META = {"unit_id", "dataset", "sample", "environment_id", "split",
         "family_id", "source_segment_index", "start_s", "end_s",
         "duration_s", "available"}
 
-
 def load():
     df = pd.read_csv(FEAT)
     feat_cols = [c for c in df.columns if c not in META]
     return df, feat_cols
 
-
-# ---------------- Q1 分布诊断 ----------------
 def q1_stats(df):
     tr = df[df.split == "train"]
     print("=" * 72)
@@ -51,9 +36,8 @@ def q1_stats(df):
           f"-> {'分层显著成立' if p < 0.05 else '分层不显著'}")
     return stats
 
-
 def q1_gofit(df):
-    """lognormal vs Weibull 按族 AIC 对比（文献: Strum 2000; Weibull 任务时长 2017）。"""
+
     from scipy import stats as st
     tr = df[df.split == "train"]
     print("=" * 72)
@@ -61,13 +45,13 @@ def q1_gofit(df):
     rows = []
     for fam, sub in tr.groupby("family_id"):
         y = sub["duration_s"].values
-        # lognormal: log 数据的 MLE
+
         lly = np.log(y)
         mu, sig = lly.mean(), lly.std()
         ll_ln = float(np.sum(st.norm.logpdf(lly, mu, sig)))
         k_ln = 2
         aic_ln = 2 * k_ln - 2 * ll_ln
-        # Weibull: 三参数 MLE（floc=0 两参数）
+
         c, loc, scale = st.weibull_min.fit(y, floc=0)
         ll_wb = float(np.sum(st.weibull_min.logpdf(y, c, loc, scale)))
         aic_wb = 2 * 2 - 2 * ll_wb
@@ -81,32 +65,23 @@ def q1_gofit(df):
     r.to_csv(RESULTS / "q1_gofit.csv", index=False, encoding="utf-8-sig")
     return r
 
-
-# ---------------- 截断对照实验 ----------------
 def censor_study(df, reps=500, seed=42):
-    """朴素丢弃截断样本 vs 含删失 MLE（EM 算法）的参数偏差对比。
 
-    实验设计：从 Q1b 拟合的 P 族参数 (mu, sigma) 作为【已知真值】生成模拟数据，
-    按样本中位数右截断（模拟 trial 内只能看到 p 是否越过 H-s 的场景），
-    两种估计量各自与真值比较——隔离出"截断处理"本身的偏差，不受有限池子抽样噪声污染。
-
-    文献：Fleming 2013（生存分析经典）；EM 更新式见标准教材。
-    """
     tr = df[(df.split == "train") & (df.family_id == "P")]
     TRUE_MU = float(np.log(tr["duration_s"].values).mean())
     TRUE_SIG = float(np.log(tr["duration_s"].values).std())
 
     def em_censored(lx, cens, thr, iters=500):
-        """右删失正态 EM：删失点条件为 Z > thr（阈值，非观测值）。"""
+
         from scipy import stats as st
         mu, s = lx[~cens].mean(), lx[~cens].std()
         for _ in range(iters):
             a = (thr - mu) / s
             lam = np.exp(st.norm.logpdf(a) - st.norm.logsf(a))
             ez = lx.copy()
-            ez[cens] = mu + s * lam                 # E[Z | Z>thr]
+            ez[cens] = mu + s * lam
             var = (lx - mu) ** 2
-            var[cens] = s * s * (1 + a * lam)       # E[(Z-mu)^2 | Z>thr]
+            var[cens] = s * s * (1 + a * lam)
             mu_n, s_n = ez.mean(), np.sqrt(var.mean())
             if abs(mu_n - mu) < 1e-12 and abs(s_n - s) < 1e-12:
                 mu, s = mu_n, s_n
@@ -144,8 +119,6 @@ def censor_study(df, reps=500, seed=42):
     out.to_csv(RESULTS / "censor_study.csv", index=False, encoding="utf-8-sig")
     return out
 
-
-# ---------------- Q2 前缀可预测性 ----------------
 def grouped_kfold(df, n_splits=5, seed=0):
     envs = df["environment_id"].unique()
     rng = np.random.default_rng(seed)
@@ -155,9 +128,8 @@ def grouped_kfold(df, n_splits=5, seed=0):
         va_envs = set(folds[i])
         yield df[~df["environment_id"].isin(va_envs)], df[df["environment_id"].isin(va_envs)]
 
-
 def q2_predictability(df, feat_cols):
-    """按环境分组 5 折 CV；family 均值基线 / 岭回归 / GBM；R2、MAE、Pearson r。"""
+
     from sklearn.linear_model import Ridge
     from sklearn.ensemble import HistGradientBoostingRegressor
     from sklearn.impute import SimpleImputer
@@ -214,7 +186,6 @@ def q2_predictability(df, feat_cols):
     for c, r in cors[:8]:
         print(f"  {c}: |r|={r:.3f}")
     return res
-
 
 if __name__ == "__main__":
     df, feat_cols = load()

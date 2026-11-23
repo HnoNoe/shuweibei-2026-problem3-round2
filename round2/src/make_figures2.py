@@ -1,12 +1,3 @@
-"""第 8 步 · 之三：6 图成图（论文图位 + 题注落盘 figures/fig_captions.json）。
-
-图1 时长分布三族 + 对数正态拟合（Q1）
-图2 截断对照：朴素丢弃 vs EM 含删失参数偏差（Q1b 生存证据）
-图3 前缀可预测性：3 窗口 × 3 模型 R²（Q2 → 零审查）
-图4 消融瀑布：归因链配对差值 + 95% CI（第 7 步核心）
-图5 b 权衡：费用 / overrun / 准时率 vs b（b 弱占优的量化版）
-图6 主对比配对差分直方图：C6 − B3 逐 trial
-"""
 
 import json
 import math
@@ -25,7 +16,6 @@ from duration_model3 import DurationModel
 
 FIGDIR = ROOT / "round2/figures"
 captions = {}
-
 
 def fig1_family_durations():
     pool = eligible_pool(load_source_index())
@@ -51,14 +41,13 @@ def fig1_family_durations():
     captions["fig1_family_durations"] = (
         "图 三族作业时长分布与对数正态拟合（eligible 池，train/validation 合并展示）")
 
-
 def fig2_censoring():
     p = RESULTS / "censor_study.csv"
     if not p.exists():
         return
     df = pd.read_csv(p)
     df.columns = [c.strip("\ufeff") for c in df.columns]
-    # 列：n, naive_mu_bias, naive_sigma_bias, em_mu_bias, em_mu_sd, ...
+
     nrows = len(df)
     fig, axes = plt.subplots(1, nrows, figsize=(6.4 * nrows, 3.6), sharey=True)
     if nrows == 1:
@@ -82,7 +71,6 @@ def fig2_censoring():
     captions["fig2_censoring"] = (
         "图 截断样本处理对照：朴素丢弃 vs EM 含删失的 μ/σ 偏差（已知真值模拟）")
 
-
 def fig3_prefix_r2():
     df = pd.read_csv(RESULTS / "q2_predictability.csv")
     df.columns = [c.strip("\ufeff") for c in df.columns]
@@ -104,7 +92,6 @@ def fig3_prefix_r2():
     plt.close(fig)
     captions["fig3_prefix_r2"] = (
         "图 前缀运动特征预测总时长的 R²：全窗口全模型为负，预测力证伪")
-
 
 def fig4_ablation():
     s = json.load(open(RESULTS / "q7_ablation_summary.json", encoding="utf-8"))
@@ -128,7 +115,6 @@ def fig4_ablation():
     captions["fig4_ablation"] = (
         "图 消融归因链：相邻配置配对差值与 95% CI（450 局/臂，CRN 配对）")
 
-
 def fig5_btradeoff():
     p = RESULTS / "q8_btradeoff_summary.csv"
     if not p.exists():
@@ -150,7 +136,6 @@ def fig5_btradeoff():
     captions["fig5_btradeoff"] = (
         "图 预留 b 的权衡扫描：准时率与 overrun 不变、费用单调上升（b=0.2 弱占优的量化验证）")
 
-
 def fig6_paired_hist():
     df = pd.read_csv(RESULTS / "q7_ablation.csv")
     df.columns = [c.strip("\ufeff") for c in df.columns]
@@ -170,7 +155,6 @@ def fig6_paired_hist():
     plt.close(fig)
     captions["fig6_paired_hist"] = (
         "图 主对比逐 trial 配对差分分布：正值占优且均值显著离 0")
-
 
 if __name__ == "__main__":
     fig1_family_durations()

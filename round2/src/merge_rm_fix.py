@@ -1,15 +1,9 @@
-"""第 8 步 · 补丁：把修复版 RM 行合并进 q7_ablation.csv。
-
-删旧 RM_buytop 行（GBM 失效版），并入 rerun_rm_validation.py 的输出，
-行数应保持 12 臂 × 450 = 5400。合并后须重跑 analyze_ablation.py（--skip-saa）。
-"""
 
 import sys
 
 import pandas as pd
 
 from common import RESULTS
-
 
 def main():
     main_csv = RESULTS / "q7_ablation.csv"
@@ -27,7 +21,6 @@ def main():
     assert len(out) == 5400, f"合并后行数 {len(out)} != 5400"
     out.to_csv(main_csv, index=False, encoding="utf-8-sig")
     print(f"MERGED: RM 行替换完成，总行数 {len(out)} -> {main_csv}")
-
 
 if __name__ == "__main__":
     sys.exit(main())

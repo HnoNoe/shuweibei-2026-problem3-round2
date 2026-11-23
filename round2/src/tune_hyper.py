@@ -1,8 +1,3 @@
-"""第 7 步 · 之一：超参内层验证与冻结。
-
-纪律（step7_plan.md §1）：κ、K 只用 train split 内部种子选，验证集冻结前不可见。
-联合网格 4×3=12 配置，κ/K 各自按边际均值选最优；成绩全量落盘可复查。
-"""
 
 import itertools
 import json
@@ -17,10 +12,9 @@ from strategy import TwoStagePolicy
 
 KAPPAS = [1.5, 2.0, 2.5, 3.0]
 ROLL_KS = [10, 20, 40]
-TUNE_SEEDS = list(range(770001, 770021))     # train split 内部种子，与 VAL_SEEDS 无交
+TUNE_SEEDS = list(range(770001, 770021))
 CASES_ = ("S1", "S2", "S3")
-ALPHA, BETA = 1.0, 0.5                        # 名义映射
-
+ALPHA, BETA = 1.0, 0.5
 
 def main():
     sampler = SourceSampler()
@@ -48,7 +42,6 @@ def main():
               f"+-{np.std(vals, ddof=1)/np.sqrt(n):.4f} invalid={invalid} "
               f"{dt/n:.3f}s/局", flush=True)
 
-    # 边际选择：κ 按 K 平均、K 按 κ 平均
     def marg(param, idx):
         return {v: np.mean([r["mean_ot"] for r in rows if r[idx] == v])
                 for v in param}
@@ -56,7 +49,7 @@ def main():
     m_rk = marg(ROLL_KS, "roll_K")
     best_kap = max(m_kap, key=m_kap.get)
     best_rk = max(m_rk, key=m_rk.get)
-    # 约束：单局均值 < 1s（达不到则向小退）
+
     feas = [r for r in rows if r["sec_per_game"] < 1.0]
     if not feas:
         raise RuntimeError("全部配置超算力预算，需重议")
@@ -74,7 +67,6 @@ def main():
     with open(RESULTS / "q7_tuning.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     print("FROZEN:", out["frozen"])
-
 
 if __name__ == "__main__":
     main()

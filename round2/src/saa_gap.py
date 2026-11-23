@@ -1,22 +1,3 @@
-"""SAA 最优性间隙估计（Verweij et al. 2003 流程，文献 40/41）。
-
-回答的问题：我们的策略距"这个随机优化问题的真最优"有多远。
-最大化问题：v* = 最优期望加权准时率。
-
-  下界 LB：M 批独立 N 情景的 SAA 子问题解值 v_m
-           LB = mean(v_m) − 1.96·sd(v_m)/√M        （E[v_m] ≤ v*）
-  上界 UB：任一可行解在大样本独立情景集上的评价值（v* ≤ E[eval] 的估计）
-  间隙 gap = UB − LB，gap/UB = 距天花板的相对距离
-
-口径与 caveat（写论文必须带上）：
-- S1（8 作业）SAA 子问题精确枚举全部前序可行序列 —— 真下界；
-- S2/S3 枚举不可行，子问题用局部搜索（初解 ATC 扫描 + 邻域改进），
-  此时 LB 是"启发式族内最好"，间隙解读带上界含义，不可声称严格证书；
-- SAA 度量的是"固定先验序列策略类"。我们的在线 recourse 策略弱占优于该类，
-  故证书对本策略是保守的（真 gap 只会更小）。
-
-自检（step6 冒烟）：S1 小配置跑通，gap ≥ 0，量级合理（< 0.3）。
-"""
 
 import itertools
 import math
@@ -27,19 +8,15 @@ from common import CASES, CHANGEOVER, load_tasks, zone_dist
 from duration_model3 import DurationModel
 from strategy import EPS, FastSim, fee_of, B_MIN
 
-
-# ---------------- 序列工具 ----------------
-
 def public_jobs(case):
-    """load_tasks -> snapshot 同款公开 job 表（无真值）。"""
+
     return {j["job_id"]: dict(family=j["family"], release_s=j["release_s"],
                               due_s=j["due_s"], weight=j["weight"],
                               zone=j["zone"], predecessors=list(j["predecessors"]))
             for j in load_tasks()[case]}
 
-
 def feasible_permutations(jobs):
-    """全部前序可行序列（DFS，按需生成）。S1=8 作业规模可控。"""
+
     ids = list(jobs)
     preds = {j: set(jobs[j]["predecessors"]) for j in ids}
     done, seq = set(), []
@@ -59,9 +36,8 @@ def feasible_permutations(jobs):
 
     yield from dfs()
 
-
 def eval_sequence(seq, jobs, durs, alpha, beta, H, B):
-    """固定序列单情景跟随：等释放、前序未完跳过、预算/H 卡死跳过。返回加权准时率。"""
+
     snap0 = dict(t=0.0, zone="Z0", cost=0.0, H=H, B=B, alpha=alpha, beta=beta,
                  jobs=jobs, executed=set(), completed=set(), completion_time={})
     sim = FastSim(snap0, durs, alpha, beta, H, B)
@@ -74,21 +50,19 @@ def eval_sequence(seq, jobs, durs, alpha, beta, H, B):
         if sim.t >= sim.H - EPS:
             break
         if all(p in sim.completed for p in info["predecessors"]):
-            sim.exec_ok(jid)          # 失败即跳过（预算/H 卡死），不判违规
+            sim.exec_ok(jid)
     return sim.weighted_on_time()
 
-
 def sample_scenarios(jobs, params, N, rng):
-    """N 组情景：durs[k][jid]。"""
+
     out = []
     for _ in range(N):
         out.append({j: float(np.exp(rng.normal(*params[info["family"]])))
                     for j, info in jobs.items()})
     return out
 
-
 def local_search(seq0, jobs, scen, alpha, beta, H, B, max_steps=40):
-    """在样本平均目标上做 first-improvement 局部搜索（S2/S3 的 SAA 子问题解算器）。"""
+
     def ev(seq):
         return sum(eval_sequence(seq, jobs, d, alpha, beta, H, B) for d in scen) / len(scen)
 
@@ -117,9 +91,8 @@ def local_search(seq0, jobs, scen, alpha, beta, H, B, max_steps=40):
             break
     return best, best_ev
 
-
 def atc_scan_init(jobs, model, alpha, beta, H, B, kappa=2.0):
-    """期望时长确定性扫描初解（与 strategy.py 离线层同款逻辑，独立实现防循环依赖）。"""
+
     snap0 = dict(t=0.0, zone="Z0", cost=0.0, H=H, B=B, alpha=alpha, beta=beta,
                  jobs=jobs, executed=set(), completed=set(), completion_time={})
     mean_d = {f: math.exp(mu + 0.5 * sig ** 2) for f, (mu, sig) in model.params.items()}
@@ -166,12 +139,9 @@ def atc_scan_init(jobs, model, alpha, beta, H, B, kappa=2.0):
         seq.append(best)
     return seq
 
-
-# ---------------- SAA 间隙主流程 ----------------
-
 def saa_gap(case, alpha=1.0, beta=0.5, candidate_seq=None, M=10, N=20,
             n_eval=5000, model=None, seed0=777000, ls_solver=True):
-    """返回 dict：LB/UB/gap/是否精确下界。"""
+
     model = model or DurationModel.from_gofit()
     cfg = CASES[case]
     H, B = cfg["H"], cfg["B"]
@@ -220,11 +190,10 @@ def saa_gap(case, alpha=1.0, beta=0.5, candidate_seq=None, M=10, N=20,
                 candidate_seq=list(candidate_seq),
                 batch_seqs=[list(s) for s in batch_seqs])
 
-
 if __name__ == "__main__":
     import json, sys
     sys.path.insert(0, __file__.rsplit("\\", 1)[0])
-    r = saa_gap("S1", M=5, N=10, n_eval=2000)   # 冒烟配置
+    r = saa_gap("S1", M=5, N=10, n_eval=2000)
     print(json.dumps({k: v for k, v in r.items() if k not in
                       ("batch_seqs", "candidate_seq")}, indent=2))
     assert r["gap"] >= -1e-9 and r["gap_rel"] < 0.3, "SAA 间隙冒烟失败"

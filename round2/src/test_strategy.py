@@ -1,13 +1,3 @@
-"""第 6 步自检（7 项）→ results/q6_strategy_checks.json。
-
-1  合法性：C6 在 3 案例 × 3 种子（validation split）invalid_actions 恒 0
-2  回放一致：同 (case, seed, 配置) 双跑，trial.log 逐字节一致（CRN 配对地基）
-3  放松链不空：s 贴近 H 的合成 snapshot 下仍返回合法动作（不崩、不违规）
-4  引擎退化：C0（杠杆全关 + 反馈关）与 B2 基线逐动作一致
-5  离线确定性：L5 双次构建同 seed 输出同一序列
-6  L5 单调不劣：固定情景集上局部搜索结果期望得分 ≥ 初解
-7  SAA 间隙冒烟：S1 小配置 gap ≥ 0 且 gap/UB < 0.3
-"""
 
 import json
 import time
@@ -20,17 +10,14 @@ import saa_gap
 
 checks = []
 
-
 def rec(name, passed, detail):
     checks.append(dict(name=name, passed=bool(passed), detail=detail))
     print(("PASS " if passed else "FAIL ") + name + " | " + detail)
-
 
 SAMPLER = SourceSampler(feat_csv=None)
 MODEL = DurationModel.from_gofit()
 GRID = [(c, VAL_SEEDS[i]) for c in ("S1", "S2", "S3") for i in (0, 9, 21)]
 
-# ---- 1 合法性 ----
 bad = []
 t0 = time.time()
 for case, seed in GRID:
@@ -43,7 +30,6 @@ dt = time.time() - t0
 rec("1 合法性(C6 9局)", not bad,
     f"invalid≠0: {bad if bad else '无'}; 9局共 {dt:.1f}s")
 
-# ---- 2 回放一致 ----
 mismatch = []
 for case, seed in GRID[:4]:
     pol1 = TwoStagePolicy("C6_full", model=MODEL)
@@ -55,7 +41,6 @@ for case, seed in GRID[:4]:
 rec("2 回放一致(CRN地基)", not mismatch,
     f"log 不一致: {mismatch if mismatch else '无'}（4 局逐字节比对）")
 
-# ---- 3 放松链不空 ----
 snap = dict(t=98.0, zone="Z0", cost=0.0, H=100.0, B=32.0,
             alpha=1.0, beta=0.5,
             jobs={"J1": dict(family="P", release_s=0.0, due_s=200.0,
@@ -69,7 +54,6 @@ ok3 = act is None or (act[0] == "execute" and act[2] >= 0.2 - 1e-9) \
       or act[0] == "wait"
 rec("3 放松链不空", ok3, f"近 H 合成快照返回: {act}")
 
-# ---- 4 引擎退化：C0(反馈关) ≡ B2 ----
 diff = []
 for case, seed in GRID[:3]:
     p_c0 = TwoStagePolicy("C0_bare", hyper={"feedback": False}, model=MODEL)
@@ -85,7 +69,6 @@ for case, seed in GRID[:3]:
 rec("4 引擎退化≡WSPT中位", not diff,
     f"动作序列不一致: {diff if diff else '无'}（3 局逐动作比对；引擎默认估计=中位数）")
 
-# ---- 5 离线确定性 ----
 jobs = saa_gap.public_jobs("S2")
 pol5 = TwoStagePolicy("C6_full", model=MODEL)
 pol5.reset(dict(case="S2", seed=7, alpha=1.0, beta=0.5,
@@ -100,7 +83,6 @@ s2_ = pol5b._offline_sequence()
 rec("5 离线序列确定性", s1_ == s2_,
     f"双构建{'一致' if s1_ == s2_ else '不一致'}; 序列长 {len(s1_)}")
 
-# ---- 6 L5 单调不劣 ----
 pol6 = TwoStagePolicy("C6_full", model=MODEL)
 pol6.reset(dict(case="S2", seed=7, alpha=1.0, beta=0.5,
                 H=CASES["S2"]["H"], B=CASES["S2"]["B"], K=6))
@@ -112,7 +94,6 @@ ev_best = pol6._sequence_ev(best_seq, pol6._toy_snapshot())
 rec("6 L5单调不劣", ev_best >= ev_init - 1e-9,
     f"初解 {ev_init:.4f} -> 搜索后 {ev_best:.4f}（10 情景均值）")
 
-# ---- 7 SAA 间隙冒烟 ----
 t0 = time.time()
 r7 = saa_gap.saa_gap("S1", M=5, N=10, n_eval=2000, model=MODEL)
 ok7 = r7["gap"] >= -1e-9 and r7["gap_rel"] < 0.3

@@ -1,9 +1,3 @@
-"""第 7 步 · 之三：450 局配对对比主程序。
-
-11 条臂 × (5 映射 × 3 案例 × 30 验证种子) = 4950 局，CRN 配对。
-超参从 q7_tuning.json 读冻结值（run 前 tune_hyper.py 必须先跑完）。
-输出：results/q7_ablation.csv（逐 trial 全量 metrics）。
-"""
 
 import csv
 import json
@@ -19,14 +13,12 @@ ARMS = ["B1_EDD", "B2_WSPT_MEAN", "B2b_WSPT_MEDIAN", "B3_WSPT_Q90",
         "C0_bare", "C1_atc", "C2_guard", "C3_budget", "C4_roll",
         "C5_online", "C6_full", "RM_buytop"]
 
-
 def make_arm(name, model, frozen):
     if name.startswith("B"):
         return baseline(name, model=model)
     if name == "RM_buytop":
         return ReviewMaxPolicy(hyper=frozen, model=model)
     return TwoStagePolicy(name, hyper=frozen, model=model)
-
 
 def main():
     frozen = json.load(open(ROOT / "round2/results/q7_tuning.json",
@@ -68,7 +60,6 @@ def main():
                               f"ETA {el/n_done*(450-n_done):.0f}s", flush=True)
                         f.flush()
     print(f"DONE {n_done} trials in {time.time()-t_start:.0f}s -> {out}")
-
 
 if __name__ == "__main__":
     main()
