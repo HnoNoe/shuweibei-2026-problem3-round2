@@ -9,7 +9,10 @@
 """
 
 import copy
+import os
+import re
 import sys
+import zipfile
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -107,7 +110,7 @@ def main():
         "test showed a decision–simulation mismatch (the contrast narrows "
         "from −0.0047 to −0.0017), and an offline sequence search was "
         "evaluated but not adopted (C6 − C5 = −0.0060 ± 0.0065 on validation "
-        "and −0.0119 ± 0.0067 on test). Hyperparameters (κ = 3.0, roll-out "
+        "and −0.0119 ± 0.0069 on test). Hyperparameters (κ = 3.0, roll-out "
         "scenarios K = 40) were frozen on internal training seeds before any "
         "validation contrast was run.")
 
@@ -264,7 +267,67 @@ def main():
         insert_para_before(anchor, ref, style="Normal")
 
     doc.save(out)
+    post_fix(out)
     print(f"REVISED -> {out}")
+
+
+def post_fix(path):
+    """三处 zip 手术，均为 OOXML 合规修复：
+    1) settings.xml 移除不合序的 w:uiCompat97To2003（原稿自带，Word 校验报错）；
+    2) styles.xml 把 21 个 style 里排在 qFormat 之后的 w:uiPriority 前移到合法位置；
+    3) Table 13 宽固化 9544 dxa、三列 3253/3253/3254（防 autofit 溢出页宽）。"""
+    tmp = path + ".tmp"
+    followers = ('<w:semiHidden', '<w:unhideWhenUsed', '<w:qFormat', '<w:locked',
+                 '<w:personal ', '<w:personalCompose', '<w:personalReply',
+                 '<w:rsid', '<w:pPr', '<w:rPr', '<w:tblPr', '<w:trPr', '<w:tcPr')
+
+    def fix_style_block(m):
+        blk = m.group(0)
+        um = re.search(r'<w:uiPriority[^>]*/>', blk)
+        if not um:
+            return blk
+        elem = um.group(0)
+        blk = blk[:um.start()] + blk[um.end():]
+        pos = len(blk)
+        for tag in followers:
+            t = blk.find(tag)
+            if t != -1 and t < pos:
+                pos = t
+        if pos == len(blk):
+            pos = blk.rfind('</w:style>')
+        return blk[:pos] + elem + blk[pos:]
+
+    with zipfile.ZipFile(path) as zin:
+        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+            for n in zin.namelist():
+                data = zin.read(n)
+                if n == "word/settings.xml":
+                    s = data.decode("utf-8")
+                    s = s.replace("<w:uiCompat97To2003/>", "")
+                    data = s.encode("utf-8")
+                elif n == "word/styles.xml":
+                    s = data.decode("utf-8")
+                    s = re.sub(r'<w:style\b.*?</w:style>', fix_style_block,
+                               s, flags=re.S)
+                    data = s.encode("utf-8")
+                elif n == "word/document.xml":
+                    s = data.decode("utf-8")
+                    # 用 Table 13 表题反查它前面的那个 tbl，不受其后表格影响
+                    cap = s.find("Baseline–refined comparison along")
+                    i = s.rfind("<w:tbl>", 0, cap)
+                    assert i != -1, "Table 13 tbl not found"
+                    seg = s[i:]
+                    seg = re.sub(r"<w:tblW[^>]*/>",
+                                 '<w:tblW w:w="9544" w:type="dxa"/>',
+                                 seg, count=1)
+                    widths = iter(["3253", "3253", "3254"])
+                    seg = re.sub(r"<w:gridCol[^>]*/>",
+                                 lambda m: f'<w:gridCol w:w="{next(widths)}"/>',
+                                 seg, count=3)
+                    s = s[:i] + seg
+                    data = s.encode("utf-8")
+                zout.writestr(n, data)
+    os.replace(tmp, path)
 
 
 if __name__ == "__main__":

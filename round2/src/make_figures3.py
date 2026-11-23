@@ -25,12 +25,19 @@ from matplotlib import rcParams
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 rcParams.update({
+    # Nature 风：Arial、刻度朝外、spines 顶部/右侧隐藏
     "font.family": "sans-serif",
-    "font.sans-serif": ["Helvetica", "Arial", "DejaVu Sans"],
+    "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
     "font.size": 9,
     "axes.linewidth": 0.8,
     "axes.spines.top": False,
     "axes.spines.right": False,
+    "xtick.direction": "out",
+    "ytick.direction": "out",
+    "xtick.major.size": 3.5,
+    "ytick.major.size": 3.5,
+    "xtick.major.width": 0.8,
+    "ytick.major.width": 0.8,
     "axes.titlesize": 9.5,
     "axes.titleweight": "bold",
     "axes.labelsize": 9,
@@ -42,6 +49,9 @@ rcParams.update({
     "savefig.pad_inches": 0.05,
 })
 
+# Nature 风 muted 色板（from "A quick introduction to matplotlib", OLHOS grid)
+PALETTE = ["#4878CF", "#6ACC64", "#D65F5F", "#B47CC7", "#C4AD66", "#77BEDB"]
+
 from common import RESULTS, ROOT
 from scipy import stats
 
@@ -49,10 +59,11 @@ FIGDIR = ROOT / "round2/figures3"
 FIGDIR.mkdir(exist_ok=True)
 captions = {}
 
-C_BASE = "#C44E52"     # baseline — 红
-C_REF = "#0F4C81"      # refined — 深蓝
-C_ACC = "#55A868"      # 正增益 — 绿
+C_BASE = PALETTE[2]   # baseline — muted red #D65F5F
+C_REF = PALETTE[0]    # refined — muted blue #4878CF
+C_ACC = PALETTE[1]    # 正增益 — muted green #6ACC64
 C_GREY = "#8C8C8C"
+C_AMBER = PALETTE[4]  # reviews — #C4AD66
 
 R1_CSV = ROOT / "archive_round1/baseline_results/comparison_validation.csv"
 
@@ -199,8 +210,8 @@ def figC_information(r1, r2):
                label=win, color=[C_GREY, C_BASE, C_REF][i])
     ax.axhline(0, color="black", lw=0.8)
     ax.set_xticks(x)
-    ax.set_xticklabels(["family mean", "ridge (baseline\nrelied on it)",
-                        "grad. boost\n(best found)"], fontsize=6.5)
+    ax.set_xticklabels(["family\nmean", "ridge*\n(baseline)",
+                        "grad.\nboost (best)"], fontsize=6.8)
     ax.set_ylabel("out-of-sample R²")
     ax.set_title("Prefix features carry no\npredictable duration signal")
     ax.legend(fontsize=6.5, frameon=False)
@@ -216,26 +227,29 @@ def figC_information(r1, r2):
     groups = ["falsified route\n(buy-top arm)", "refined\n(zero-review)"]
     cost_d = sec["RM_buytop"]["cost_mean"] - sec["C5_online"]["cost_mean"]
     xx = np.arange(2)
-    b1 = ax.bar(xx[0] - 0.18, sec["RM_buytop"]["cost_mean"], 0.34,
-                color=C_BASE)
+    ax.bar(xx[0] - 0.18, sec["RM_buytop"]["cost_mean"], 0.34, color=C_BASE)
     ax.bar(xx[1] - 0.18, sec["C5_online"]["cost_mean"], 0.34, color=C_REF)
     ax2 = ax.twinx()
     ax2.spines["top"].set_visible(False)
-    b2 = ax2.bar(xx[0] + 0.18, sec["RM_buytop"]["reviews_mean"], 0.34,
-                 color="#E8A33D")
+    ax2.bar(xx[0] + 0.18, sec["RM_buytop"]["reviews_mean"], 0.34,
+            color=C_AMBER)
     ax2.bar(xx[1] + 0.18, sec["C5_online"]["reviews_mean"], 0.34,
             color=C_GREY)
+    # 直接标注柱（替代图例）：cost 在左柱顶，reviews 在右柱顶
+    ax.text(xx[0] - 0.18, sec["RM_buytop"]["cost_mean"] + 0.6, "cost",
+            ha="center", fontsize=6.5, color=C_BASE, fontweight="bold")
+    ax.text(xx[1] - 0.18, sec["C5_online"]["cost_mean"] + 0.6, "cost",
+            ha="center", fontsize=6.5, color=C_REF, fontweight="bold")
+    ax2.text(xx[0] + 0.18, sec["RM_buytop"]["reviews_mean"] + 0.25, "reviews",
+             ha="center", fontsize=6.5, color="#8a6d1f", fontweight="bold")
+    ax2.text(xx[1] + 0.18, sec["C5_online"]["reviews_mean"] + 0.25, "reviews",
+             ha="center", fontsize=6.5, color=C_GREY, fontweight="bold")
     ax.set_xticks(xx)
     ax.set_xticklabels(groups, fontsize=6.5)
     ax.set_ylabel("mean cost per trial", color=C_REF)
-    ax2.set_ylabel("reviews bought", color="#E8A33D")
-    ax.set_title("The falsified route costs more\nand still loses "
-                 f"({rm_pair['mean_diff']:+.4f} paired)")
-    ax.text(0.5, 0.02, f"+{cost_d:.2f} cost for nothing",
-            transform=ax.transAxes, ha="center", fontsize=7,
-            color=C_BASE, fontweight="bold")
-    ax.legend(handles=[b1, b2], labels=["cost", "reviews"],
-              fontsize=6.5, frameon=False, loc="upper left")
+    ax2.set_ylabel("reviews bought", color=C_AMBER)
+    ax.set_title(f"Falsified route: +{cost_d:.2f} cost,\n"
+                 f"and still loses ({rm_pair['mean_diff']:+.4f} paired)")
 
     # (iii) 反证：买满也赢不了
     ax = axes[2]
@@ -245,14 +259,18 @@ def figC_information(r1, r2):
     ax.errorbar([0], [rm["mean_diff"]], yerr=[rm["ci95_halfwidth"]],
                 fmt="none", ecolor="black", elinewidth=1, capsize=3)
     ax.axhline(0, color="black", lw=0.8)
+    ax.set_xlim(-0.55, 0.85)
     ax.set_xticks([0])
     ax.set_xticklabels(["buy-top-arm vs\nrefined zero-review"], fontsize=7)
     ax.set_ylabel("paired gain (on-time rate)")
     ax.set_title("Even an adversarial buy-everything\narm cannot beat zero-review")
-    ax.text(0, rm["mean_diff"] - 0.006, f"{rm['mean_diff']:+.4f}\n±"
-            f"{rm['ci95_halfwidth']:.4f}", ha="center", va="top", fontsize=7.5)
+    ax.text(0.14, rm["mean_diff"], f"{rm['mean_diff']:+.4f}\n±"
+            f"{rm['ci95_halfwidth']:.4f}", ha="left", va="center", fontsize=7.5)
 
     fig.tight_layout()
+    for i, ax in enumerate(axes):
+        ax.text(0.03, 0.97, "abc"[i], transform=ax.transAxes,
+                fontsize=10, fontweight="bold", va="top", ha="left")
     fig.savefig(FIGDIR / "figC_information.png")
     plt.close(fig)
     captions["figC_information"] = (
@@ -290,6 +308,9 @@ def figD_censoring():
         ax.grid(axis="y", color="0.9", lw=0.6)
     axes[0].set_ylabel("estimate − truth")
     axes[0].legend(frameon=False, fontsize=7)
+    for i, ax in enumerate(axes):
+        ax.text(0.04, 0.96, chr(ord("a") + i), transform=ax.transAxes,
+                fontsize=10, fontweight="bold", va="top", ha="left")
     fig.suptitle("Censoring is signal, not garbage: EM recovers the parameters\n"
                  "that naive deletion biases downstream (known-truth simulation)",
                  fontsize=9.5, fontweight="bold", y=1.02)

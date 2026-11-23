@@ -23,6 +23,7 @@ shuwei_c/
 │   ├── src/                 代码：common(常量) simulator(裁判) sampler(CRN采样) + 单测
 │   ├── results/             计算结果
 │   ├── figures/             图
+│   ├── figures3/            第9步对比图（figA-F，Nature 风 + 3D 主图，英文题注）
 │   └── docs/                诊断汇总、排版规范
 └── archive_round1/          上一轮全部产出（留档可查，不再改动）
 ```
@@ -48,6 +49,7 @@ shuwei_c/
 - [x] 第 8 步 bug 修复（2026-11-23）：① `run_test.py` 臂映射错误——"C5_online" 实际跑成了 RM，test 集真 C5 缺失，已修；② `review_max.py` GBM 特征键前缀不匹配——反证臂的信息通道从未生效，已修（裸 numpy 训练 + 剥前缀映射 + NaN 中位数填补）
 - [x] 第 8 步重跑完成（2026-11-23）：validation RM 臂修复版（GBM 生效）RM−C5 = **−0.0504±0.0084**，零审查更硬；test 补跑真 C5：C5−B3 = **+0.1047±0.0098**、C6−C5 = −0.0119（双 split 一致确认 C5 主策略）、RM−C5 = **−0.0633±0.0083**
 - [x] 第 9 步 论文改稿：SWBMCM 原英文论文保留为 baseline pipeline 对照，新增 5.6 节（CRN 配对审计 + 6 张对比图 figA-F，含 3D 主图）、7.1 对比表、参考文献扩充至 10 条（Kleywegt 2002 / Verweij 2003 / Bertsekas & Castañón 1999 / Dempster 1977 / Strum 2000 / Adamu 2014）
+- [x] 第 9 步绘图/改稿精修（2026-11-23）：图全面换 Nature muted 色板（#4878CF/#6ACC64/#D65F5F/#C4AD66）+ Arial + 刻度朝外 + 面板字母 a/b/c 内置 + 图例无边框；`revise_paper.py` 三处 OOXML 合规手术固化进流水线（settings.xml 去 uiCompat97To2003、styles.xml 21 个 uiPriority 前移、Table 13 宽 9544 dxa），C6−C5 test 半宽改 0.0069；改稿重跑后 OOXML 校验 PASSED（原稿 22 违例 → 修订版 0 违例 + 9 条原稿自带警告），渲染 QA 27 页目检合格
 
 ## 关键数字速查（论文以此为准，全部脚本可复现）
 
@@ -70,6 +72,10 @@ python3 round2/src/run_ablation.py && python3 round2/src/analyze_ablation.py
 python3 round2/src/run_test.py
 # 图
 python3 round2/src/make_figures2.py
+# 第9步对比图（figA-F，Nature 风 + 3D 主图）
+python3 round2/src/make_figures3.py
+# 论文改稿（原稿 docx → 修订版 docx，含 OOXML 合规手术）
+python3 round2/src/revise_paper.py <原稿.docx> <输出.docx>
 ```
 
 计算只用 CPU（sklearn/scipy/pandas），无需 GPU。
