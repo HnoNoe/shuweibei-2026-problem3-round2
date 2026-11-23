@@ -95,7 +95,7 @@ def ridge_feats(c0, v0, a0, dt, fam, ds_code, seg_frac):
 def masking_experiment():
     ss, rs = index_tables()
     rng = np.random.default_rng(SEED)
-    train_samples, rows = [], []
+    rows = []
     for _, r in rs.iterrows():
         try:
             t, L, R, bad, reason, segs = open_record(r["episode_uuid"])
@@ -138,7 +138,6 @@ def masking_experiment():
             }
             X = ridge_feats(c0, v0, a0, dt_choice, fam, ds_code, seg_frac)
             rec["X"], rec["Y"] = X, cT - c0
-            (train_samples if r["split"] == "train" else None)
             rows.append(rec)
     df = pd.DataFrame([{k: v for k, v in r.items() if k not in ("X", "Y")} for r in rows])
     from sklearn.preprocessing import StandardScaler
@@ -155,8 +154,9 @@ def masking_experiment():
         df.loc[k, "err_ridge"] = float(np.linalg.norm(Pall[k] - Yall[k]))
     resid = Yall - Pall
     sig = {}
+    hold_mask = (df["split"] != "train").to_numpy()
     for d in DELTAS:
-        msk = (df["delta"] == d).to_numpy()
+        msk = (df["delta"] == d).to_numpy() & hold_mask
         if msk.sum() > 5:
             sig[float(d)] = float(np.linalg.norm(resid[msk], axis=1).std())
     df.to_csv(OUT / "masking_predictions.csv", index=False)
@@ -168,6 +168,7 @@ def masking_experiment():
 
 
 def error_curves(df):
+    df = df[df["split"] != "train"]
     out = []
     for d in DELTAS:
         sub = df[df["delta"] == d]
@@ -185,6 +186,7 @@ def error_curves(df):
 
 def reobservation_sims():
     ss = eligible_intervals()
+    ss = ss[ss["split"] != "train"].reset_index(drop=True)
     rng = np.random.default_rng(SEED + 1)
     with open(OUT / "ridge_model.pkl", "rb") as f:
         pack = pickle.load(f)
@@ -283,6 +285,7 @@ def reobservation_sims():
 
 def stats_p12():
     df = pd.read_csv(OUT / "masking_predictions.csv")
+    df = df[df["split"] != "train"]
     by_iv = df.groupby(["episode_uuid", "delta"])[["err_hold", "err_cv", "err_ridge"]].mean().reset_index()
     comp = [("ridge", "hold"), ("ridge", "cv"), ("cv", "hold")]
     rows = []

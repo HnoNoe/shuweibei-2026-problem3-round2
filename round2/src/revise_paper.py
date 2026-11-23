@@ -356,66 +356,78 @@ def insert_p1_p2(doc):
     insert_para_before(
         h3,
         "Error grows with the missing window for every method, but in "
-        "qualitatively different ways (Figure 4, Table 3). CONSTANT-"
-        "VELOCITY is best at Δ = 0.25 s (0.050 m) and then diverges, "
-        "reaching 1.90 m at Δ = 5 s — worse than doing nothing for every "
-        "Δ ≥ 1 s. HOLD saturates around 0.44 m as the hand's motion stays "
-        "local. The family ridge dominates across the whole range (0.087–"
-        "0.42 m): paired signed-rank tests over the 403 record × Δ cells "
-        "give ridge versus CONSTANT-VELOCITY −0.495 m (Holm-adjusted p < "
-        "1e-15, d_z = −0.68) and ridge versus HOLD −0.011 m (p = 0.025, "
-        "d_z = −0.17). The upgrade is not a small tuning gain: it removes "
-        "the divergence mode entirely.")
+        "qualitatively different ways (Figure 4, Table 3). All evaluation "
+        "below is hold-out: the ridge is fitted only on training records "
+        "and audited on the 280 validation/test windows. CONSTANT-"
+        "VELOCITY is best at Δ = 0.25 s (0.055 m) and then diverges, "
+        "reaching 2.10 m at Δ = 5 s — worse than doing nothing for every "
+        "Δ ≥ 1 s. HOLD saturates around 0.56 m as the hand's motion stays "
+        "local. The family ridge is the only predictor stable across the "
+        "whole range (0.096–0.553 m) and it beats CONSTANT-VELOCITY by "
+        "−0.454 m on average (paired signed-rank over the 81 hold-out "
+        "record × Δ cells, Holm-adjusted p = 1.4e-8, d_z = −0.69). "
+        "Against HOLD its point error is a statistical tie (−0.009 m, "
+        "p = 0.61, d_z = −0.14) — but HOLD carries no uncertainty "
+        "estimate, and the ridge's per-Δ residual dispersion is what "
+        "drives the re-observation decision in Section 4.4. The upgrade "
+        "removes the divergence mode entirely rather than shaving a "
+        "small tuning gain.")
     insert_figure_before(
         h3, doc, f"{FIGDIR}/fig_p2_growth.png",
         "Figure 4. Mean 3D position error versus missing-observation "
         "window for the two baselines and the family-ridge predictor "
-        "(shaded: 95% bootstrap CI). Velocity extrapolation diverges; the "
-        "family ridge is stable across two decades of Δ.",
+        "(hold-out records; shaded: 95% bootstrap CI). Velocity "
+        "extrapolation diverges; the family ridge is stable across two "
+        "decades of Δ.",
         width_in=3.6)
     rows = [
         ["Family ridge (upgrade)",
-         "0.260", "0.368", "0.425",
-         "vs CV: p < 1e-15, d_z = −0.68; vs HOLD: p = 0.025"],
+         "0.332", "0.440", "0.553",
+         "vs CV: p = 1.4e-8, d_z = −0.69; vs HOLD: tied (p = 0.61)"],
         ["HOLD (last state)",
-         "0.293", "0.388", "0.436", "saturates; never diverges"],
+         "0.369", "0.453", "0.563", "saturates; never diverges"],
         ["Constant velocity",
-         "0.406", "0.859", "1.904", "best at 0.25 s, diverges by 1 s"],
+         "0.436", "0.988", "2.095", "best at 0.25 s, diverges by 1 s"],
     ]
     tb = insert_table_before(
         h3, doc,
         ["Predictor", "MAE at Δ=1 s (m)", "Δ=2 s (m)", "Δ=5 s (m)",
-         "Paired audit"],
+         "Paired audit (hold-out)"],
         rows, None)
     move_caption_above(
         tb, h3,
-        "Table 3. Masking-replay prediction audit (1,380 windows on "
-        "training/validation/test records).")
+        "Table 3. Masking-replay prediction audit (1,380 masked windows; "
+        "ridge fitted on training records only, evaluation on the 280 "
+        "validation/test windows).")
     insert_para_before(h3, "4.4 When to re-observe: fixed schedules versus "
                            "uncertainty thresholds", "Heading 2")
     insert_para_before(
         h3,
         "Prediction alone does not answer when a new observation is worth "
-        "its cost. We simulate continuous replays in which a policy may "
-        "request re-observation at any epoch (1 s delay, identical "
-        "conditions for all policies) and score it by time-mean error and "
-        "request rate. Four policy families compete: no re-observation; "
-        "fixed-interval schedules; an uncertainty-threshold policy that "
-        "requests when the ridge model's residual dispersion exceeds a "
-        "tolerance; and an oracle that requests exactly when the realized "
-        "error would exceed the tolerance. The threshold policy matches "
-        "the 1 s fixed schedule's error (0.174 m versus 0.173 m) with 18% "
-        "fewer requests (48.3 versus 59.2 per minute; paired signed-rank, "
-        "Holm-adjusted p < 1e-15 over 317 records), and the oracle shows "
-        "the threshold policy is within 10% of the information-theoretic "
-        "frontier (Figure 5). Waiting — continuing to predict without "
-        "requesting — is optimal precisely when the residual dispersion "
-        "curve is flat, which the model reports rather than assumes.")
+        "its cost. On the 97 validation/test intervals we simulate "
+        "continuous replays in which a policy may request re-observation "
+        "at any epoch (1 s delay, identical conditions for all policies) "
+        "and score it by time-mean error and request rate. Four policy "
+        "families compete: no re-observation; fixed-interval schedules; "
+        "an uncertainty-threshold policy that requests when the ridge "
+        "model's residual dispersion exceeds a tolerance; and an oracle "
+        "that requests exactly when the realized error would exceed the "
+        "tolerance. The threshold policy buys 18% fewer requests than "
+        "the 1 s fixed schedule (48.9 versus 59.4 per minute; paired "
+        "signed-rank, Holm-adjusted p = 2.5e-15) at a mean-error cost of "
+        "0.8 mm (0.190 m versus 0.189 m, Holm p = 2.7e-5 — three orders "
+        "of magnitude below a 5 cm action tolerance), and the oracle "
+        "shows the threshold policy is within 10% of the "
+        "information-theoretic frontier (Figure 5). Waiting — continuing "
+        "to predict without requesting — is optimal precisely when the "
+        "residual dispersion curve is flat, which the model reports "
+        "rather than assumes.")
     insert_figure_before(
         h3, doc, f"{FIGDIR}/fig_p2_tradeoff.png",
-        "Figure 5. Re-observation cost–error frontier. Fixed schedules "
-        "trace the grey curve; the uncertainty-threshold policy sits on "
-        "its left (same error, fewer requests); the oracle bounds the "
+        "Figure 5. Re-observation cost–error frontier (hold-out "
+        "intervals). Fixed schedules trace the grey curve; the "
+        "uncertainty-threshold policy sits on its left (0.8 mm of mean "
+        "error traded for 18% fewer requests); the oracle bounds the "
         "achievable region.",
         width_in=3.6)
 
@@ -456,13 +468,14 @@ def rewrite_abstract(doc):
             new = (
                 "Problem 2 asks how long a missing hand can be predicted "
                 "and when to buy a new observation. On 1,380 artificial-"
-                "masking replays, constant-velocity extrapolation — best "
-                "at 0.25 s — diverges to 1.9 m by 5 s; holding the last "
-                "state saturates near 0.44 m; a family-conditioned ridge "
-                "stays stable across the whole range (paired tests, Holm-"
-                "corrected). An uncertainty-threshold re-observation "
-                "policy matches the best fixed schedule's error with 18% "
-                "fewer requests.")
+                "masking replays (hold-out evaluation), constant-velocity "
+                "extrapolation — best at 0.25 s — diverges to 2.1 m by "
+                "5 s; holding the last state saturates near 0.56 m; a "
+                "family-conditioned ridge stays stable across the whole "
+                "range and removes the divergence mode (paired tests, "
+                "Holm-corrected). An uncertainty-threshold re-observation "
+                "policy trades 0.8 mm of mean error for 18% fewer requests "
+                "than the best fixed schedule.")
             runs = p.runs
             if runs:
                 runs[0].text = new
