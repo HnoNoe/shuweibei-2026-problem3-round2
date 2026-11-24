@@ -364,8 +364,8 @@ def insert_p1_p2(doc):
         "Δ ≥ 1 s. HOLD saturates around 0.56 m as the hand's motion stays "
         "local. The family ridge is the only predictor stable across the "
         "whole range (0.096–0.553 m) and it beats CONSTANT-VELOCITY by "
-        "−0.454 m on average (paired signed-rank over the 81 hold-out "
-        "record × Δ cells, Holm-adjusted p = 1.4e-8, d_z = −0.69). "
+        "−0.454 m on average (paired signed-rank [10] over the 81 hold-out "
+        "record × Δ cells, Holm-adjusted [9] p = 1.4e-8, d_z = −0.69). "
         "Against HOLD its point error is a statistical tie (−0.009 m, "
         "p = 0.61, d_z = −0.14) — but HOLD carries no uncertainty "
         "estimate, and the ridge's per-Δ residual dispersion is what "
@@ -435,7 +435,7 @@ def insert_p1_p2(doc):
         "that requests exactly when the realized error would exceed the "
         "tolerance. The threshold policy buys 18% fewer requests than "
         "the 1 s fixed schedule (48.9 versus 59.4 per minute; paired "
-        "signed-rank, Holm-adjusted p = 2.5e-15) at a mean-error cost of "
+        "signed-rank [10], Holm-adjusted [9] p = 2.5e-15) at a mean-error cost of "
         "0.8 mm (0.190 m versus 0.189 m, Holm p = 2.7e-5 — three orders "
         "of magnitude below a 5 cm action tolerance), and the oracle "
         "shows the threshold policy is within 10% of the "
@@ -526,6 +526,45 @@ def rewrite_abstract(doc):
                 for r in runs[1:]:
                     r.text = ""
             continue
+
+
+def add_ref_citations(doc):
+    subs = [
+        ("expected weighted on-time completion,",
+         "expected weighted on-time completion [8],"),
+        ("Kruskal–Wallis, Holm-corrected p < 0.001",
+         "Kruskal–Wallis, Holm-corrected [9] p < 0.001"),
+        ("hierarchical log-normal with a σ ≥ 0.35 floor",
+         "hierarchical log-normal [7] with a σ ≥ 0.35 floor"),
+        ("the EM censoring-aware update",
+         "the EM [6] censoring-aware update"),
+        ("rollout lookahead under CRN",
+         "rollout lookahead [5] under CRN"),
+        ("Sample-average-approximation bounds",
+         "Sample-average-approximation [3, 4] bounds"),
+        ("conditions files. Validate the source join",
+         "conditions files [1]. Validate the source join"),
+        ("The supplied first-person demonstrations record",
+         "The supplied first-person demonstrations [1] record"),
+    ]
+    hits = {old: 0 for old, _ in subs}
+    for p in doc.paragraphs:
+        joined = "".join(r.text for r in p.runs)
+        for old, new in subs:
+            if old not in joined:
+                continue
+            for r in p.runs:
+                if old in r.text:
+                    r.text = r.text.replace(old, new, 1)
+                    hits[old] += 1
+                    break
+            else:
+                for r in p.runs:
+                    r.text = ""
+                p.runs[0].text = joined.replace(old, new, 1)
+                hits[old] += 1
+    for old, n in hits.items():
+        print(f"citation [{old[:45]}...] x{n}")
 
 
 def main():
@@ -723,8 +762,9 @@ def main():
     move_caption_above(
         stbl, h6,
         "Table 15. Statistical audit of every contrast. Trial-level paired "
-        "differences on weighted on-time rate; Wilcoxon signed-rank test "
-        "with Holm correction within each family (validation family of 10, "
+        "differences on weighted on-time rate; Wilcoxon signed-rank [10] "
+        "test with Holm correction [9] within each family (validation "
+        "family of 10, "
         "test family of 2); Cohen's d_z is the standardized mean of paired "
         "differences. [test] marks contrasts on independent test seeds.")
 
@@ -800,13 +840,15 @@ def main():
     for ref in new_refs:
         insert_para_before(anchor, ref, style="Normal")
 
+    add_ref_citations(doc)
+
     doc.save(out)
     post_fix(out)
     print(f"REVISED -> {out}")
 
 
 TBL_FIXES = [
-    ("Holm correction within each family",
+    ("Holm correction [9] within each family",
      ["3600", "2444", "1400", "1400", "700"]),
     ("Baseline–refined comparison along",
      ["3253", "3253", "3254"]),

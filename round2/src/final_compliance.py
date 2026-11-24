@@ -1,5 +1,7 @@
+import os
 import re
 import sys
+import zipfile
 
 from docx import Document
 
@@ -83,13 +85,17 @@ def retitle(p_el, new_text):
 def move_block(doc):
     h74 = find_body_heading(doc, "7.4 Comparison Across")
     h75 = find_body_heading(doc, "7.5 Case-level")
+    h76 = find_body_heading(doc, "7.6 From a Conventional")
     h8 = find_body_heading(doc, "8. Sensitivity")
     h_appc = find_body_heading(doc, "Appendix C")
     assert h74 is not None and h75 is not None and h8 is not None \
         and h_appc is not None, "move anchors missing"
     body = h74.getparent()
     kids = list(body)
-    i0, i1 = kids.index(h74), kids.index(h8)
+    i0 = kids.index(h74)
+    # 上界用 7.6 标题而不是 8：否则 7.4~8 之间的 7.6 叙事会被一起扫进附录
+    i1 = kids.index(h76) if h76 is not None and kids.index(h76) > i0 \
+        else kids.index(h8)
     block = kids[i0:i1]
     for el in block:
         body.remove(el)
@@ -109,6 +115,21 @@ def move_block(doc):
     return len(block)
 
 
+def strip_bad_settings(dst):
+    tmp = dst + ".tmp"
+    with zipfile.ZipFile(dst) as zin:
+        names = zin.namelist()
+        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+            for name in names:
+                data = zin.read(name)
+                if name == "word/settings.xml":
+                    xml = data.decode("utf-8")
+                    xml = re.sub(r"<w:uiCompat97To2003[^>]*/>", "", xml)
+                    data = xml.encode("utf-8")
+                zout.writestr(name, data)
+    os.replace(tmp, dst)
+
+
 def main(src, dst):
     doc = Document(src)
     fix_header(doc)
@@ -116,8 +137,9 @@ def main(src, dst):
     n_drop = drop_toc_entries(doc, ["7.4 Comparison", "7.5 Case-level"])
     n_blk = move_block(doc)
     doc.save(dst)
+    strip_bad_settings(dst)
     print(f"header fixed, toc compressed x{n_toc}, toc entries dropped x{n_drop}, "
-          f"moved elements x{n_blk}")
+          f"moved elements x{n_blk}, uiCompat97To2003 stripped")
 
 
 if __name__ == "__main__":
